@@ -16,6 +16,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/cin.github.io/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -994,6 +998,8 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
+      <span class="post-meta-item-text">站点总字数：</span>
+    
     <span title="站点总字数">111k</span>
   
 
@@ -1002,6 +1008,8 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+    
+      <span class="post-meta-item-text">站点总阅读时长：</span>
     
     <span title="站点总阅读时长">1:51</span>
   
@@ -1046,6 +1054,12 @@
       </div>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -1168,7 +1182,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("tDgFOQliNqT57l7f0AwrX650-gzGzoHsz", "6djBmHU6p3fOmaLJkrURpLEd");</script>
+  <script>AV.initialize("tDgFOQliNqT57l7f0AwrX65O-gzGzoHsz", "6djBmHU6p3fOmaLJkrURpLEd");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -1270,6 +1284,39 @@
 
   
   
+  
+  <script src="/cin.github.io/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
 
   
 
@@ -1283,6 +1330,6 @@
 
 </body>
 <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/love.js"></script>
+<script type="text/javascript" src="/cin.github.io/js/src/love.js"></script>
 </html>
 
