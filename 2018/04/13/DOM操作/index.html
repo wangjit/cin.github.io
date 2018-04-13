@@ -151,7 +151,7 @@
 <meta property="og:site_name" content="cin">
 <meta property="og:description" content="题目1： dom对象的innerText和innerHTML有什么区别？ innerText是一个可写属性，返回元素内包含的文本内容，在多层次的时候会按照元素由浅到深的顺序拼接其内容。例如 123456&amp;lt;div&amp;gt;    &amp;lt;p&amp;gt;        123        &amp;lt;span&amp;gt;456&amp;lt;/span&amp;gt;    &amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; 1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-13T04:22:31.668Z">
+<meta property="og:updated_time" content="2018-04-13T05:02:10.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM操作">
 <meta name="twitter:description" content="题目1： dom对象的innerText和innerHTML有什么区别？ innerText是一个可写属性，返回元素内包含的文本内容，在多层次的时候会按照元素由浅到深的顺序拼接其内容。例如 123456&amp;lt;div&amp;gt;    &amp;lt;p&amp;gt;        123        &amp;lt;span&amp;gt;456&amp;lt;/span&amp;gt;    &amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; 1">
@@ -535,8 +535,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">console.log(div.innerHtml);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;</span><br><span class="line">    123</span><br><span class="line">    &lt;span&gt;456&lt;/span&gt;</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h4 id="题目2：-elem-children和elem-childNodes的区别？"><a href="#题目2：-elem-children和elem-childNodes的区别？" class="headerlink" title="题目2： elem.children和elem.childNodes的区别？"></a>题目2： elem.children和elem.childNodes的区别？</h4><p>elem.children: 获取指定元素的子元素列表，包含HTML元素节点。<br>elem.childNodes：获取指定元素的子元素列表，包含HTML元素节、文本节点、注释节点</p>
-<h4 id="题目3：查询元素有几种常见的方法？ES5的元素选择方法是什么"><a href="#题目3：查询元素有几种常见的方法？ES5的元素选择方法是什么" class="headerlink" title="题目3：查询元素有几种常见的方法？ES5的元素选择方法是什么?"></a>题目3：查询元素有几种常见的方法？ES5的元素选择方法是什么?</h4></li>
+<h4 id="题目3：查询元素有几种常见的方法？ES5的元素选择方法是什么"><a href="#题目3：查询元素有几种常见的方法？ES5的元素选择方法是什么" class="headerlink" title="题目3：查询元素有几种常见的方法？ES5的元素选择方法是什么?"></a>题目3：查询元素有几种常见的方法？ES5的元素选择方法是什么?</h4><ul>
 <li>getElementById()<br>getElementById()方法返回匹配指定ID属性的元素节点。如果没有发现匹配的节点，则返回null。这也是获取一个元素最快的方法<br><code>var elem = document.getElementById(&quot;test&quot;);</code></li>
 <li>getElementsByClassName()<br>getElementsByClassName()方法返回一个类似数组的对象（HTMLCollection类型的对象），包括了所有class名字符合指定条件的元素（搜索范围包括本身），元素的变化实时反映在返回结果中。这个方法不仅可以在document对象上调用，也可以在任何元素节点上调用。<br><code>var elements = document.getElementsByClassName(names);</code><br>getElementsByClassName方法的参数，可以是多个空格分隔的class名字，返回同时具有这些节点的元素。<br><code>document.getElementsByClassName(&#39;red test&#39;);</code></li>
 <li>getElementsByTagName()<br>getElementsByTagName()方法返回所有指定标签的元素（搜索范围包括本身）。返回值是一个HTMLCollection对象，也就是说，搜索结果是一个动态集合，任何元素的变化都会实时反映在返回的集合中。这个方法不仅可以在document对象上调用，也可以在任何元素节点上调用。<br><code>var paras = document.getElementsByTagName(&quot;p&quot;);</code><br>上面代码返回当前文档的所有p元素节点。注意，getElementsByTagName方法会将参数转为小写后，再进行搜索。</li>
@@ -549,8 +551,9 @@
 </li>
 <li><p>querySelectorAll()<br>querySelectorAll方法返回匹配指定的CSS选择器的所有节点，返回的是NodeList类型的对象。NodeList对象不是动态集合，所以元素节点的变化无法实时反映在返回结果中。<br><code>elementList = document.querySelectorAll(selectors);</code><br>querySelectorAll方法的参数，可以是逗号分隔的多个CSS选择器，返回所有匹配其中一个选择器的元素。<br><code>var matches = document.querySelectorAll(&quot;div.note, div.alert&quot;);</code><br>上面代码返回class属性是note或alert的div元素。</p>
 </li>
-<li><p>elementFromPoint()<br>elementFromPoint方法返回位于页面指定位置的元素。<br>var element = document.elementFromPoint(x, y);<br>上面代码中，elementFromPoint方法的参数x和y，分别是相对于当前窗口左上角的横坐标和纵坐标，单位是CSS像素。<br>elementFromPoint方法返回位于这个位置的DOM元素，如果该元素不可返回（比如文本框的滚动条），则返回它的父元素（比如文本框）。如果坐标值无意义（比如负值），则返回null。</p>
-<h4 id="题目4：如何创建一个元素？如何给元素设置属性？如何删除属性"><a href="#题目4：如何创建一个元素？如何给元素设置属性？如何删除属性" class="headerlink" title="题目4：如何创建一个元素？如何给元素设置属性？如何删除属性"></a>题目4：如何创建一个元素？如何给元素设置属性？如何删除属性</h4></li>
+<li>elementFromPoint()<br>elementFromPoint方法返回位于页面指定位置的元素。<br>var element = document.elementFromPoint(x, y);<br>上面代码中，elementFromPoint方法的参数x和y，分别是相对于当前窗口左上角的横坐标和纵坐标，单位是CSS像素。<br>elementFromPoint方法返回位于这个位置的DOM元素，如果该元素不可返回（比如文本框的滚动条），则返回它的父元素（比如文本框）。如果坐标值无意义（比如负值），则返回null。</li>
+</ul>
+<h4 id="题目4：如何创建一个元素？如何给元素设置属性？如何删除属性"><a href="#题目4：如何创建一个元素？如何给元素设置属性？如何删除属性" class="headerlink" title="题目4：如何创建一个元素？如何给元素设置属性？如何删除属性"></a>题目4：如何创建一个元素？如何给元素设置属性？如何删除属性</h4><ul>
 <li><p>创建元素</p>
 <ul>
 <li><p>createElement()<br>createElement方法用来生成HTML元素节点。<br><code>var newDiv = document.createElement(&quot;div&quot;);</code><br>createElement方法的参数为元素的标签名，即元素节点的tagName属性。如果传入大写的标签名，会被转为小写。如果参数带有尖括号（即&lt;和&gt;）或者是null，会报错。</p>
@@ -570,7 +573,9 @@
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var node = document.getElementById(&quot;div1&quot;);</span><br><span class="line">var a = document.createAttribute(&quot;my_attrib&quot;);</span><br><span class="line">a.value = &quot;newVal&quot;;</span><br><span class="line">node.setAttributeNode(a);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除属性<br>romoveAttribute()<br>removeAttribute()用于删除元素属性<br><code>node.removeAttribute(&#39;id&#39;);</code></p>
-<h4 id="题目5：如何给页面元素添加子元素？如何删除页面元素下的子元素"><a href="#题目5：如何给页面元素添加子元素？如何删除页面元素下的子元素" class="headerlink" title="题目5：如何给页面元素添加子元素？如何删除页面元素下的子元素?"></a>题目5：如何给页面元素添加子元素？如何删除页面元素下的子元素?</h4></li>
+</li>
+</ul>
+<h4 id="题目5：如何给页面元素添加子元素？如何删除页面元素下的子元素"><a href="#题目5：如何给页面元素添加子元素？如何删除页面元素下的子元素" class="headerlink" title="题目5：如何给页面元素添加子元素？如何删除页面元素下的子元素?"></a>题目5：如何给页面元素添加子元素？如何删除页面元素下的子元素?</h4><ul>
 <li><p>appendChild()<br>在元素末尾添加元素</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var newDiv = document.createElement(&quot;div&quot;);</span><br><span class="line">var newContent = document.createTextNode(&quot;Hello&quot;);</span><br><span class="line">newDiv.appendChild(newContent);</span><br></pre></td></tr></table></figure>
 </li>
@@ -578,9 +583,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var newDiv = document.createElement(&quot;div&quot;);</span><br><span class="line">var newContent = document.createTextNode(&quot;Hello&quot;);</span><br><span class="line">newDiv.insertBefore(newContent, newDiv.firstChild);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>replaceChild()<br>replaceChild()接受两个参数：要插入的元素和要替换的元素<br><code>newDiv.replaceChild(newElement, oldElement);</code></p>
-<h4 id="题目6：-element-classList有哪些方法？如何判断一个元素的-class-列表中是包含某个-class？如何添加一个class？如何删除一个class"><a href="#题目6：-element-classList有哪些方法？如何判断一个元素的-class-列表中是包含某个-class？如何添加一个class？如何删除一个class" class="headerlink" title="题目6： element.classList有哪些方法？如何判断一个元素的 class 列表中是包含某个 class？如何添加一个class？如何删除一个class?"></a>题目6： element.classList有哪些方法？如何判断一个元素的 class 列表中是包含某个 class？如何添加一个class？如何删除一个class?</h4></li>
+</li>
 </ul>
-<blockquote>
+<h4 id="题目6：-element-classList有哪些方法？如何判断一个元素的-class-列表中是包含某个-class？如何添加一个class？如何删除一个class"><a href="#题目6：-element-classList有哪些方法？如何判断一个元素的-class-列表中是包含某个-class？如何添加一个class？如何删除一个class" class="headerlink" title="题目6： element.classList有哪些方法？如何判断一个元素的 class 列表中是包含某个 class？如何添加一个class？如何删除一个class?"></a>题目6： element.classList有哪些方法？如何判断一个元素的 class 列表中是包含某个 class？如何添加一个class？如何删除一个class?</h4><blockquote>
 <ul>
 <li>element.classList的方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;  add()：增加一个class。</span><br><span class="line">&gt;  remove()：移除一个class。</span><br><span class="line">&gt;  contains()：检查当前元素是否包含某个class。</span><br><span class="line">&gt;  toggle()：将某个class移入或移出当前元素。</span><br><span class="line">&gt;  item()：返回指定索引位置的class。</span><br><span class="line">&gt;  toString()：将class的列表转为字符串。</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </li>
@@ -629,7 +634,7 @@
   <p><span>本文标题:</span><a href="/cin.github.io/2018/04/13/DOM操作/">DOM操作</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 cin 的个人博客">cin</a></p>
   <p><span>发布时间:</span>2018年04月13日 - 12:04</p>
-  <p><span>最后更新:</span>2018年04月13日 - 12:04</p>
+  <p><span>最后更新:</span>2018年04月13日 - 13:04</p>
   <p><span>原始链接:</span><a href="/cin.github.io/2018/04/13/DOM操作/" title="DOM操作">https://wangjit.github.io/cin.github.io/2018/04/13/DOM操作/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://wangjit.github.io/cin.github.io/2018/04/13/DOM操作/"  aria-label="复制成功！"></i></span>
   </p>

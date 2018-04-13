@@ -143,18 +143,18 @@
 
 
 
-  <meta name="description" content="题目1： 为什么要使用模块化？ 最主要的目的：解决命名冲突依赖管理  其他价值：提高代码可读性代码解耦，提高复用性 题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用 CMD 即Common Module Definition通用模块定义，CMD规范是国内发展出来的，就像AMD有个requireJS，CMD有个浏览器的实现SeaJS，SeaJS要解决的问题和requireJS一">
+  <meta name="description" content="题目1： 为什么要使用模块化？ 最主要的目的：解决命名冲突依赖管理  其他价值：提高代码可读性代码解耦，提高复用性   题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用 CMD 即Common Module Definition通用模块定义，CMD规范是国内发展出来的，就像AMD有个requireJS，CMD有个浏览器的实现SeaJS，SeaJS要解决的问题和requireJ">
 <meta name="keywords" content="前端,ADM,CMD,RequireJS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AMD_CMD_RequireJS">
 <meta property="og:url" content="https://wangjit.github.io/cin.github.io/2018/04/13/AMD-CMD-RequireJS/index.html">
 <meta property="og:site_name" content="cin">
-<meta property="og:description" content="题目1： 为什么要使用模块化？ 最主要的目的：解决命名冲突依赖管理  其他价值：提高代码可读性代码解耦，提高复用性 题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用 CMD 即Common Module Definition通用模块定义，CMD规范是国内发展出来的，就像AMD有个requireJS，CMD有个浏览器的实现SeaJS，SeaJS要解决的问题和requireJS一">
+<meta property="og:description" content="题目1： 为什么要使用模块化？ 最主要的目的：解决命名冲突依赖管理  其他价值：提高代码可读性代码解耦，提高复用性   题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用 CMD 即Common Module Definition通用模块定义，CMD规范是国内发展出来的，就像AMD有个requireJS，CMD有个浏览器的实现SeaJS，SeaJS要解决的问题和requireJ">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-13T04:40:10.229Z">
+<meta property="og:updated_time" content="2018-04-13T04:48:10.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AMD_CMD_RequireJS">
-<meta name="twitter:description" content="题目1： 为什么要使用模块化？ 最主要的目的：解决命名冲突依赖管理  其他价值：提高代码可读性代码解耦，提高复用性 题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用 CMD 即Common Module Definition通用模块定义，CMD规范是国内发展出来的，就像AMD有个requireJS，CMD有个浏览器的实现SeaJS，SeaJS要解决的问题和requireJS一">
+<meta name="twitter:description" content="题目1： 为什么要使用模块化？ 最主要的目的：解决命名冲突依赖管理  其他价值：提高代码可读性代码解耦，提高复用性   题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用 CMD 即Common Module Definition通用模块定义，CMD规范是国内发展出来的，就像AMD有个requireJS，CMD有个浏览器的实现SeaJS，SeaJS要解决的问题和requireJ">
 
 
 
@@ -520,7 +520,9 @@
 <li><p>最主要的目的：<br>解决命名冲突<br>依赖管理</p>
 </li>
 <li><p>其他价值：<br>提高代码可读性<br>代码解耦，提高复用性</p>
-<h5 id="题目2：-CMD、AMD、CommonJS-规范分别指什么？有哪些应用"><a href="#题目2：-CMD、AMD、CommonJS-规范分别指什么？有哪些应用" class="headerlink" title="题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用"></a>题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用</h5></li>
+</li>
+</ul>
+<h5 id="题目2：-CMD、AMD、CommonJS-规范分别指什么？有哪些应用"><a href="#题目2：-CMD、AMD、CommonJS-规范分别指什么？有哪些应用" class="headerlink" title="题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用"></a>题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用</h5><ul>
 <li><p>CMD 即<code>Common Module Definition</code>通用模块定义，CMD规范是国内发展出来的，就像AMD有个requireJS，CMD有个浏览器的实现SeaJS，SeaJS要解决的问题和requireJS一样，只不过在模块定义方式和模块加载（可以说运行、解析）时机上有所不同<br>语法（Sea.js 推崇一个模块一个文件，遵循统一的写法<code>define</code>）：<br><code>define(id?, deps?, factory)</code><br>因为CMD推崇一个文件一个模块，所以经常就用文件名作为模块id<br>CMD推崇依赖就近，所以一般不在define的参数中写依赖，而在factory中写。factory有三个参数<br><code>function(require, exports, module)</code><br><strong>require</strong><br><code>require</code> 是 <code>factory</code> 函数的第一个参数。<br><code>require(id)</code><br><code>require</code> 是一个方法，接受 <code>模块标识</code> 作为唯一参数，用来获取其他模块提供的接口。</p>
 <p><strong>exports</strong><br><code>exports</code> 是一个对象，用来向外提供模块接口。</p>
 <p><strong>module</strong><br><code>module</code> 是一个对象，上面存储了与当前模块相关联的一些属性和方法。</p>
@@ -546,9 +548,9 @@
 <li><p>CommonJS：<br>用于服务器端模块化，有一个全局性方法require()，用于加载模块。</p>
 <p>语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(dependences) // 加载依赖模块</span><br><span class="line">exports.factory = function()&#123; // ...&#125;;  // 使用”exports”对象来做为输出的唯一表示。</span><br></pre></td></tr></table></figure>
-<h5 id="题目3：-使用-requirejs-完善入门任务15，包括如下功能："><a href="#题目3：-使用-requirejs-完善入门任务15，包括如下功能：" class="headerlink" title="题目3： 使用 requirejs 完善入门任务15，包括如下功能："></a>题目3： 使用 requirejs 完善入门任务15，包括如下功能：</h5><p><a href="https://github.com/wangjit/jirengu/tree/master/%E9%AB%98%E7%BA%A74" target="_blank" rel="noopener">代码</a></p>
 </li>
 </ul>
+<h5 id="题目3：-使用-requirejs-完善入门任务15，包括如下功能："><a href="#题目3：-使用-requirejs-完善入门任务15，包括如下功能：" class="headerlink" title="题目3： 使用 requirejs 完善入门任务15，包括如下功能："></a>题目3： 使用 requirejs 完善入门任务15，包括如下功能：</h5><p><a href="https://github.com/wangjit/jirengu/tree/master/%E9%AB%98%E7%BA%A74" target="_blank" rel="noopener">代码</a></p>
 <ol>
 <li>首屏大图为全屏轮播</li>
 <li>有回到顶部功能</li>

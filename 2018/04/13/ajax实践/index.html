@@ -154,7 +154,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-ddf40043f48f1485.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-f6aadea199a3c3d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-7abcc9df2267211e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-13T04:27:57.610Z">
+<meta property="og:updated_time" content="2018-04-13T04:59:59.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ajax实践">
 <meta name="twitter:description" content="题目1： ajax 是什么？有什么作用？ ajax即“Asynchronous JavaScript and XML”（异步的JavaScript与XML技术方案）。它依赖的是现有的CSS/HTML/Javascript，而其中最核心的依赖是浏览器提供的XMLHttpRequest对象，是这个对象使得浏览器可以发出HTTP请求与接收HTTP响应。ajax与XMLHttpRequest的关系：使用X">
@@ -529,19 +529,18 @@
       
         <h4 id="题目1：-ajax-是什么？有什么作用？"><a href="#题目1：-ajax-是什么？有什么作用？" class="headerlink" title="题目1： ajax 是什么？有什么作用？"></a>题目1： ajax 是什么？有什么作用？</h4><ul>
 <li>ajax即“<strong>Asynchronous JavaScript and XML</strong>”（异步的JavaScript与XML技术方案）。它依赖的是现有的CSS/HTML/Javascript，而其中最核心的依赖是浏览器提供的XMLHttpRequest对象，是这个对象使得浏览器可以发出HTTP请求与接收HTTP响应。ajax与XMLHttpRequest的关系：使用XMLHttpRequest对象来发送一个Ajax请求。</li>
-<li><p>可以和后端交换数据，不用刷新页面，提高用户体验</p>
-<h4 id="题目2：-前后端开发联调需要注意哪些事情？后端接口完成前如何-mock-数据？"><a href="#题目2：-前后端开发联调需要注意哪些事情？后端接口完成前如何-mock-数据？" class="headerlink" title="题目2： 前后端开发联调需要注意哪些事情？后端接口完成前如何 mock 数据？"></a>题目2： 前后端开发联调需要注意哪些事情？后端接口完成前如何 mock 数据？</h4></li>
+<li>可以和后端交换数据，不用刷新页面，提高用户体验</li>
+</ul>
+<h4 id="题目2：-前后端开发联调需要注意哪些事情？后端接口完成前如何-mock-数据？"><a href="#题目2：-前后端开发联调需要注意哪些事情？后端接口完成前如何-mock-数据？" class="headerlink" title="题目2： 前后端开发联调需要注意哪些事情？后端接口完成前如何 mock 数据？"></a>题目2： 前后端开发联调需要注意哪些事情？后端接口完成前如何 mock 数据？</h4><ul>
 <li>前后端联调是一种 真实业务数据 和 本地mock数据 之间来回切换以达到 前后端分离架构 下的不同开发速度时 数据交换 的一种方式方法。在前后端开发时，需要注意：<ul>
 <li>确定要传输的数据以及数据类型。</li>
 <li>确定接口名称、请求和响应的类型格式以及请求的数据中参数的名称、响应的数据的格式。</li>
 <li>最后根据以上约定整理出接口文档。</li>
 </ul>
 </li>
-<li><p>后端接口完成之前，前端可以根据接口文档，模拟后端数据验证所写页面的响应和接口是否正常。可以使用server-mock，它能拦截ajax请求并根据请求中的内容来随机生成符合要求的假数据，模拟后端环境来完成对页面和接口的测试。</p>
-<h4 id="题目3：点击按钮，使用-ajax-获取数据，如何在数据到来之前防止重复点击"><a href="#题目3：点击按钮，使用-ajax-获取数据，如何在数据到来之前防止重复点击" class="headerlink" title="题目3：点击按钮，使用 ajax 获取数据，如何在数据到来之前防止重复点击?"></a>题目3：点击按钮，使用 ajax 获取数据，如何在数据到来之前防止重复点击?</h4><p>用外部变量锁定</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function $(selector)&#123;</span><br><span class="line">      return document.querySelectorAll(selector);</span><br><span class="line">    &#125;</span><br><span class="line">var isDataArrive = true;</span><br><span class="line">$(&apos;.btn&apos;).addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">  if(!isDataArrive)&#123;return;&#125;</span><br><span class="line">  else&#123;</span><br><span class="line">    ajax(&#123;</span><br><span class="line">       //todo...</span><br><span class="line">       isDataArrive = true; </span><br><span class="line">    &#125;)</span><br><span class="line">    isDataArrive = false;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
+<li>后端接口完成之前，前端可以根据接口文档，模拟后端数据验证所写页面的响应和接口是否正常。可以使用server-mock，它能拦截ajax请求并根据请求中的内容来随机生成符合要求的假数据，模拟后端环境来完成对页面和接口的测试。</li>
 </ul>
+<h4 id="题目3：点击按钮，使用-ajax-获取数据，如何在数据到来之前防止重复点击"><a href="#题目3：点击按钮，使用-ajax-获取数据，如何在数据到来之前防止重复点击" class="headerlink" title="题目3：点击按钮，使用 ajax 获取数据，如何在数据到来之前防止重复点击?"></a>题目3：点击按钮，使用 ajax 获取数据，如何在数据到来之前防止重复点击?</h4><p>用外部变量锁定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function $(selector)&#123;</span><br><span class="line">      return document.querySelectorAll(selector);</span><br><span class="line">    &#125;</span><br><span class="line">var isDataArrive = true;</span><br><span class="line">$(&apos;.btn&apos;).addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">  if(!isDataArrive)&#123;return;&#125;</span><br><span class="line">  else&#123;</span><br><span class="line">    ajax(&#123;</span><br><span class="line">       //todo...</span><br><span class="line">       isDataArrive = true; </span><br><span class="line">    &#125;)</span><br><span class="line">    isDataArrive = false;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p><a href="https://www.zhihu.com/question/19805411" target="_blank" rel="noopener">其他方法</a></p>
 <h4 id="题目4：实现加载更多的功能，效果范例374，后端在本地使用server-mock来模拟数据"><a href="#题目4：实现加载更多的功能，效果范例374，后端在本地使用server-mock来模拟数据" class="headerlink" title="题目4：实现加载更多的功能，效果范例374，后端在本地使用server-mock来模拟数据"></a>题目4：实现加载更多的功能，<a href="http://jrgzuoye.applinzi.com/%E4%BD%9C%E4%B8%9A%E5%AE%89%E6%8E%92/jscode/JS9-jqueryajax/1.html" target="_blank" rel="noopener">效果范例374</a>，后端在本地使用server-mock来模拟数据</h4><p><a href="https://github.com/wangjit/jirengu/blob/master/index.html" target="_blank" rel="noopener">客户端</a><br><a href="https://github.com/wangjit/jirengu/blob/master/router.js" target="_blank" rel="noopener">服务端</a></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/6782687-ddf40043f48f1485.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="初始页面"></p>

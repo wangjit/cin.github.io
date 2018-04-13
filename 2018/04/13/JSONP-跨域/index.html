@@ -155,7 +155,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-9fd159fc8fc4ec3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-379b2a2404fdd53e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-506efbe150efc3cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-13T04:28:58.048Z">
+<meta property="og:updated_time" content="2018-04-13T04:59:17.727Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSONP_跨域">
 <meta name="twitter:description" content="题目1： 什么是同源策略浏览器出于安全方面考虑，只允许与本域下的接口交互。不同源的客户端脚本在没有明确授权的情况下，不能读写对方的资源。如：  http://jirengu.com/a/b/js 和 http://jirengu.com/index.php（同源）  不同源的例子：  http://jirengu.com/main.js 和 https://jirengu.com/a.php（协议">
@@ -599,11 +599,10 @@
 <li>JSONP</li>
 <li>CORS</li>
 <li>降域</li>
-<li><p>postMessage</p>
+<li>postMessage</li>
+</ol>
 <h4 id="题目3：-JSONP-的原理是什么"><a href="#题目3：-JSONP-的原理是什么" class="headerlink" title="题目3： JSONP 的原理是什么"></a>题目3： JSONP 的原理是什么</h4><p>当需要通讯时，本站脚本创建一个<script>元素，地址指向第三方的API网址，形如：     <script src="http://www.example.net/api?param1=1&param2=2"></script>     并提供一个回调函数来接收数据（函数名可约定，或通过地址参数传递）。     第三方产生的响应为json数据的包装（故称之为jsonp，即json padding），形如：     callback({“name”:”hax”,”gender”:”Male”})     这样浏览器会调用callback函数，并传递解析后json对象作为参数。本站脚本可在callback函数里处理所传入的数据。</p>
 <h4 id="题目4：-CORS是什么"><a href="#题目4：-CORS是什么" class="headerlink" title="题目4： CORS是什么"></a>题目4： CORS是什么</h4><p>CORS 全称是跨域资源共享（Cross-Origin Resource Sharing），是一种 ajax 跨域请求资源的方式，支持现代浏览器，IE支持10以上。 当使用 XMLHttpRequest 发送请求时，浏览器发现该请求不符合同源策略，会给该请求加一个请求头：Origin，后台进行一系列处理，如果确定接受请求则在返回结果中加入一个响应头：Access-Control-Allow-Origin; 浏览器判断该相应头中是否包含 Origin 的值，如果有则浏览器会处理响应，我们就可以拿到响应数据，如果不包含浏览器直接驳回，这时我们无法拿到响应数据。</p>
-</li>
-</ol>
 <p><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">跨域资源共享 CORS 详解</a></p>
 <h4 id="题目5：-根据视频里的讲解演示三种以上跨域的解决方式"><a href="#题目5：-根据视频里的讲解演示三种以上跨域的解决方式" class="headerlink" title="题目5： 根据视频里的讲解演示三种以上跨域的解决方式"></a>题目5： 根据视频里的讲解演示三种以上跨域的解决方式</h4><ul>
 <li><a href="https://github.com/wangjit/jirengu/tree/master/%E8%BF%9B%E9%98%B613/jsonp" target="_blank" rel="noopener">JSONP</a></li>

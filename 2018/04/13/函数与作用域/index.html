@@ -151,7 +151,7 @@
 <meta property="og:site_name" content="cin">
 <meta property="og:description" content="函数声明和函数表达式有什么区别 函数声明使用function关键字声明一个函数 123function sayHello &amp;#123;   console.log(&amp;apos;hello&amp;apos;)&amp;#125;  函数表达式 123var sayHello = function ()&amp;#123;   console.log(&amp;apos;hello&amp;apos;)&amp;#125;  使用函数表达式来声明">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-13T04:15:40.410Z">
+<meta property="og:updated_time" content="2018-04-13T05:05:57.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数与作用域">
 <meta name="twitter:description" content="函数声明和函数表达式有什么区别 函数声明使用function关键字声明一个函数 123function sayHello &amp;#123;   console.log(&amp;apos;hello&amp;apos;)&amp;#125;  函数表达式 123var sayHello = function ()&amp;#123;   console.log(&amp;apos;hello&amp;apos;)&amp;#125;  使用函数表达式来声明">
@@ -524,10 +524,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var sayHello = function ()&#123;</span><br><span class="line">   console.log(&apos;hello&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用函数表达式来声明函数时，声明必须写在调用的前面；他们的作用域链不相同，函数表达式是全局作用域</p>
+</li>
+</ul>
 <h4 id="什么是变量的声明前置？什么是函数的声明前置"><a href="#什么是变量的声明前置？什么是函数的声明前置" class="headerlink" title="什么是变量的声明前置？什么是函数的声明前置"></a>什么是变量的声明前置？什么是函数的声明前置</h4><p>代码在电脑中编译的过程是：<br>1.先检测整段代码中变量的声明和函数声明语句，执行这些语句<br>2.然后按照从上到的顺序执行函数调用语句或其他语句<br>3.最后执行变量的赋值<br>上述过程中，第一步叫做变量和函数的声明前置</p>
 <h4 id="arguments-是什么"><a href="#arguments-是什么" class="headerlink" title="arguments 是什么"></a>arguments 是什么</h4><p>arguments对象用于获取到该函数的所有传入参数，arguments对象是所有函数中可用的局部变量。可以使用arguments对象在函数中引用函数的参数。此对象包含传递给函数的每个参数的条目，第一个条目的索引从0开始。</p>
 <h4 id="函数的”重载”怎样实现"><a href="#函数的”重载”怎样实现" class="headerlink" title="函数的”重载”怎样实现"></a>函数的”重载”怎样实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function printPeopleInfo(name, age, sex)&#123;</span><br><span class="line">    if(name)&#123;</span><br><span class="line">      console.log(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(age)&#123;</span><br><span class="line">      console.log(age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(sex)&#123;</span><br><span class="line">      console.log(sex);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  printPeopleInfo(&apos;Byron&apos;, 26);</span><br><span class="line">  printPeopleInfo(&apos;Byron&apos;, 26, &apos;male&apos;);</span><br></pre></td></tr></table></figure>
-<h4 id="立即执行函数表达式是什么？有什么作用"><a href="#立即执行函数表达式是什么？有什么作用" class="headerlink" title="立即执行函数表达式是什么？有什么作用"></a>立即执行函数表达式是什么？有什么作用</h4></li>
+<h4 id="立即执行函数表达式是什么？有什么作用"><a href="#立即执行函数表达式是什么？有什么作用" class="headerlink" title="立即执行函数表达式是什么？有什么作用"></a>立即执行函数表达式是什么？有什么作用</h4><ul>
 <li>立即执行函数可以在函数声明的同时立即执行，从而隔离作用域，防止函数内变量污染全局<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">  var a  = 1;</span><br><span class="line">&#125;)()</span><br><span class="line">console.log(a); //undefined</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -582,7 +584,7 @@ var sayAge = function(age){
   <p><span>本文标题:</span><a href="/cin.github.io/2018/04/13/函数与作用域/">函数与作用域</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 cin 的个人博客">cin</a></p>
   <p><span>发布时间:</span>2018年04月13日 - 12:04</p>
-  <p><span>最后更新:</span>2018年04月13日 - 12:04</p>
+  <p><span>最后更新:</span>2018年04月13日 - 13:04</p>
   <p><span>原始链接:</span><a href="/cin.github.io/2018/04/13/函数与作用域/" title="函数与作用域">https://wangjit.github.io/cin.github.io/2018/04/13/函数与作用域/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://wangjit.github.io/cin.github.io/2018/04/13/函数与作用域/"  aria-label="复制成功！"></i></span>
   </p>

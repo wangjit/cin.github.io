@@ -151,7 +151,7 @@
 <meta property="og:site_name" content="cin">
 <meta property="og:description" content="什么是 CSS hack 由于不同厂商的浏览器，比如Internet Explorer,Safari,Mozilla Firefox,Chrome等，或者是同一厂商的浏览器的不同版本，如IE6和IE7，对CSS的解析认识不完全一样，因此会导致生成的页面效果不一样，得不到我们所需要的页面效果。这时就需要针对不同的浏览器去写不同的CSS，让它能在不同的浏览器中也能得到我们想要的页面效果。 CSS Ha">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-13T04:06:59.278Z">
+<meta property="og:updated_time" content="2018-04-13T05:08:48.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器兼容">
 <meta name="twitter:description" content="什么是 CSS hack 由于不同厂商的浏览器，比如Internet Explorer,Safari,Mozilla Firefox,Chrome等，或者是同一厂商的浏览器的不同版本，如IE6和IE7，对CSS的解析认识不完全一样，因此会导致生成的页面效果不一样，得不到我们所需要的页面效果。这时就需要针对不同的浏览器去写不同的CSS，让它能在不同的浏览器中也能得到我们想要的页面效果。 CSS Ha">
@@ -588,10 +588,11 @@
 </tbody>
 </table>
 <ul>
-<li><strong>CSS hack</strong><br>常见hack写法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">  color: red;</span><br><span class="line">  _color: blue; /*ie6*/</span><br><span class="line">  *color: pink; /*ie67*/</span><br><span class="line">  color: yellow\9;  /*ie/edge 6-8*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p><strong>CSS hack</strong><br>常见hack写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">  color: red;</span><br><span class="line">  _color: blue; /*ie6*/</span><br><span class="line">  *color: pink; /*ie67*/</span><br><span class="line">  color: yellow\9;  /*ie/edge 6-8*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!–-[if IE 7]&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;ie7.css&quot; type=&quot;text/css&quot; /&gt;</span><br><span class="line">&lt;![endif]–-&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!–-[if IE 7]&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;ie7.css&quot; type=&quot;text/css&quot; /&gt;</span><br><span class="line">&lt;![endif]–-&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="以下工具-名词是做什么的"><a href="#以下工具-名词是做什么的" class="headerlink" title="以下工具/名词是做什么的"></a>以下工具/名词是做什么的</h4><ul>
 <li>条件注释<br>条件注释 (conditional comment) 是于HTML源码中被IE有条件解释的语句。条件注释可被用来向IE提供及隐藏代码</li>
 <li>IE Hack<br>使用特殊的符号或者方式写出只有IE浏览器可以解析的代码，有CSS属性前缀法、选择器前缀法以及IE条件注释法</li>
@@ -629,7 +630,7 @@
   <p><span>本文标题:</span><a href="/cin.github.io/2018/04/13/浏览器兼容/">浏览器兼容</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 cin 的个人博客">cin</a></p>
   <p><span>发布时间:</span>2018年04月13日 - 12:04</p>
-  <p><span>最后更新:</span>2018年04月13日 - 12:04</p>
+  <p><span>最后更新:</span>2018年04月13日 - 13:04</p>
   <p><span>原始链接:</span><a href="/cin.github.io/2018/04/13/浏览器兼容/" title="浏览器兼容">https://wangjit.github.io/cin.github.io/2018/04/13/浏览器兼容/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://wangjit.github.io/cin.github.io/2018/04/13/浏览器兼容/"  aria-label="复制成功！"></i></span>
   </p>

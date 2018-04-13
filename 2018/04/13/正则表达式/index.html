@@ -151,7 +151,7 @@
 <meta property="og:site_name" content="cin">
 <meta property="og:description" content="题目1： \d，\w,\s,[a-zA-Z0-9],\b,.,*,+,?,x{3},^,$分别是什么? \d匹配数字字符，等价于[^\r\n] \w匹配单词字符，等价于[a-zA-Z_0-9] \s匹配空白符，等价于[\t\n\x0B\f\r] [a-zA-Z0-9]匹配二十个大小写英文字符和0到9十个数字字符 \b匹配位于单词边界的单词字符，例如相应单词前面或后面的空白符，或位于字符串中间的形如">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-13T04:21:27.358Z">
+<meta property="og:updated_time" content="2018-04-13T05:02:52.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="题目1： \d，\w,\s,[a-zA-Z0-9],\b,.,*,+,?,x{3},^,$分别是什么? \d匹配数字字符，等价于[^\r\n] \w匹配单词字符，等价于[a-zA-Z_0-9] \s匹配空白符，等价于[\t\n\x0B\f\r] [a-zA-Z0-9]匹配二十个大小写英文字符和0到9十个数字字符 \b匹配位于单词边界的单词字符，例如相应单词前面或后面的空白符，或位于字符串中间的形如">
@@ -528,7 +528,8 @@
 <li><code>?</code>匹配出现零次或一次（最多出现一次）的字符</li>
 <li><code>x{3}</code>匹配出现3次的x字符</li>
 <li><code>^</code>匹配以自定义字符开头的字符</li>
-<li><p><code>$</code>匹配以自定义字符结尾的字符</p>
+<li><code>$</code>匹配以自定义字符结尾的字符</li>
+</ul>
 <h4 id="题目2：-写一个函数trim-str-，去除字符串两边的空白字符"><a href="#题目2：-写一个函数trim-str-，去除字符串两边的空白字符" class="headerlink" title="题目2： 写一个函数trim(str)，去除字符串两边的空白字符"></a>题目2： 写一个函数trim(str)，去除字符串两边的空白字符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function trim(str) &#123;</span><br><span class="line">   return str.replace(/^\s*|\s*$/g,&apos;&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="题目3：-写一个函数isEmail-str-，判断用户输入的是不是邮箱"><a href="#题目3：-写一个函数isEmail-str-，判断用户输入的是不是邮箱" class="headerlink" title="题目3： 写一个函数isEmail(str)，判断用户输入的是不是邮箱"></a>题目3： 写一个函数isEmail(str)，判断用户输入的是不是邮箱</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function isEmail(str) &#123;</span><br><span class="line">   var reg = /^[a-zA-Z0-9]\w*[@][a-zA-Z0-9]+[.][a-zA-Z0-9]+$/;</span><br><span class="line">   return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="题目4：-写一个函数isPhoneNum-str-，判断用户输入的是不是手机号"><a href="#题目4：-写一个函数isPhoneNum-str-，判断用户输入的是不是手机号" class="headerlink" title="题目4： 写一个函数isPhoneNum(str)，判断用户输入的是不是手机号"></a>题目4： 写一个函数isPhoneNum(str)，判断用户输入的是不是手机号</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isPhoneNum(str) &#123;</span><br><span class="line">   return /^1\d&#123;10&#125;$/.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -536,8 +537,6 @@
 <h4 id="题目6：-写一个函数isValidPassword-str-判断用户输入的是不是合法密码（长度6-20个字符，只包括大写字母、小写字母、数字、下划线，且至少至少包括两种）"><a href="#题目6：-写一个函数isValidPassword-str-判断用户输入的是不是合法密码（长度6-20个字符，只包括大写字母、小写字母、数字、下划线，且至少至少包括两种）" class="headerlink" title="题目6： 写一个函数isValidPassword(str), 判断用户输入的是不是合法密码（长度6-20个字符，只包括大写字母、小写字母、数字、下划线，且至少至少包括两种）"></a>题目6： 写一个函数isValidPassword(str), 判断用户输入的是不是合法密码（长度6-20个字符，只包括大写字母、小写字母、数字、下划线，且至少至少包括两种）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function isValidPassword(str) &#123;</span><br><span class="line">   if(!/^\w&#123;6,20&#125;$/.test(str)) &#123;</span><br><span class="line">      return false;</span><br><span class="line">   &#125;else if(/^\d&#123;6,20&#125;$/.test(str) || /^[a-z]&#123;6,20&#125;$/.test(str) || /^[A-Z]&#123;6,20&#125;$/.test(str) || /^_&#123;6,20&#125;$/.test(str)) &#123;</span><br><span class="line">      return false;</span><br><span class="line">   &#125;</span><br><span class="line">   return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="题目7：-写一个正则表达式，得到如下字符串里所有的颜色"><a href="#题目7：-写一个正则表达式，得到如下字符串里所有的颜色" class="headerlink" title="题目7： 写一个正则表达式，得到如下字符串里所有的颜色"></a>题目7： 写一个正则表达式，得到如下字符串里所有的颜色</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var re = /#([0-9a-fA-F]&#123;6&#125;|#[0-9a-fA-F]&#123;3&#125;)(?=;)/g;</span><br><span class="line">var subj = &quot;color: #121212; background-color: #AA00ef; width: 12px; bad-colors: f#fddee &quot;</span><br><span class="line">console.log( subj.match(re) )  // [&apos;#121212&apos;, &apos;#AA00ef&apos;]</span><br></pre></td></tr></table></figure>
 <h4 id="题目8：-下面代码输出什么-为什么-改写代码，让其输出-quot-quot-hunger-quot-quot-quot-quot-world-quot-quot"><a href="#题目8：-下面代码输出什么-为什么-改写代码，让其输出-quot-quot-hunger-quot-quot-quot-quot-world-quot-quot" class="headerlink" title="题目8： 下面代码输出什么? 为什么? 改写代码，让其输出[&quot;&quot;hunger&quot;&quot;, &quot;&quot;world&quot;&quot;]."></a>题目8： 下面代码输出什么? 为什么? 改写代码，让其输出<code>[&quot;&quot;hunger&quot;&quot;, &quot;&quot;world&quot;&quot;]</code>.</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;hello  &quot;hunger&quot; , hello &quot;world&quot;&apos;;</span><br><span class="line">var pat =  /&quot;.*&quot;/g;</span><br><span class="line">str.match(pat);//&apos;[&quot;&quot;hunger&quot; , hello &quot;world&quot;&quot;]&apos;，匹配除了回车符和换行符之外的所有字符，量词在默认下是尽可能多的匹配的，也就是常说的贪婪模式</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
 <p>修改后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;hello  &quot;hunger&quot; , hello &quot;world&quot;&apos;;</span><br><span class="line">var pat =  /&quot;.*?&quot;/g;</span><br><span class="line">str.match(pat);//&apos;[&quot;&quot;hunger&quot;&quot;, &quot;&quot;world&quot;&quot;]&apos;</span><br></pre></td></tr></table></figure></p>
 
       
@@ -561,7 +560,7 @@
   <p><span>本文标题:</span><a href="/cin.github.io/2018/04/13/正则表达式/">正则表达式</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 cin 的个人博客">cin</a></p>
   <p><span>发布时间:</span>2018年04月13日 - 12:04</p>
-  <p><span>最后更新:</span>2018年04月13日 - 12:04</p>
+  <p><span>最后更新:</span>2018年04月13日 - 13:04</p>
   <p><span>原始链接:</span><a href="/cin.github.io/2018/04/13/正则表达式/" title="正则表达式">https://wangjit.github.io/cin.github.io/2018/04/13/正则表达式/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://wangjit.github.io/cin.github.io/2018/04/13/正则表达式/"  aria-label="复制成功！"></i></span>
   </p>

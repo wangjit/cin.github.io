@@ -151,7 +151,7 @@
 <meta property="og:site_name" content="cin">
 <meta property="og:description" content="题目1： jQuery 能做什么？  方便快捷获取DOM元素　　如果使用纯JavaScript的方式来遍历DOM以及查找DOM的某个部分编写很多冗余的代码，而使用jQuery只需要一行代码就足够了。例如，找到所有应用了.content class样式的div中所有的P标签，只需要下面的一行代码：$(&amp;#39;div.content&amp;#39;).find(&amp;#39;p&amp;#39;); 动态修改页面样式">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-13T04:30:58.336Z">
+<meta property="og:updated_time" content="2018-04-13T04:58:40.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery选择器_Dom操作_样式_事件处理_动画">
 <meta name="twitter:description" content="题目1： jQuery 能做什么？  方便快捷获取DOM元素　　如果使用纯JavaScript的方式来遍历DOM以及查找DOM的某个部分编写很多冗余的代码，而使用jQuery只需要一行代码就足够了。例如，找到所有应用了.content class样式的div中所有的P标签，只需要下面的一行代码：$(&amp;#39;div.content&amp;#39;).find(&amp;#39;p&amp;#39;); 动态修改页面样式">
@@ -570,8 +570,7 @@
 <li><p><strong><code>off()</code></strong> 移除用<a href="http://www.jquery123.com/on/" target="_blank" rel="noopener"><code>.on()</code></a>绑定的事件处理程序</p>
 </li>
 </ul>
-<p>####绑定事件和解绑事件推荐使用<code>on()</code>和<code>off()</code></p>
-<ul>
+<h4 id="绑定事件和解绑事件推荐使用on-和off"><a href="#绑定事件和解绑事件推荐使用on-和off" class="headerlink" title="绑定事件和解绑事件推荐使用on()和off()"></a>绑定事件和解绑事件推荐使用<code>on()</code>和<code>off()</code></h4><ul>
 <li>使用on绑定事件使用事件代理<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//让.ct&gt;ul中的所有li绑定事件</span><br><span class="line">$(&apos;.ct&gt;ul&apos;).on(&apos;click&apos;,&apos;li&apos;,function()&#123;</span><br><span class="line">  var $this=$(this);</span><br><span class="line">  var str=$this.text();</span><br><span class="line">  $(&apos;.wrap&apos;).text(str);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -609,10 +608,11 @@
 <p><strong>题目7：</strong>如何设置和获取表单用户输入或者选择的内容？如何设置和获取元素属性？</p>
 <ul>
 <li>获取和设置表单用户输入或者选择的内容<br><code>$(&#39;input&#39;).val();</code><br><code>$(&#39;input&#39;).val(&#39;newValue&#39;);</code><br>当方法没有参数的时候返回input的value值，当传递了一个参数的时候，方法修改input的value值为参数值</li>
-<li>获取和设置元素属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//获取元素特定属性的值</span><br><span class="line">var title = $( &quot;em&quot; ).attr( &quot;title&quot; );</span><br><span class="line">//为元素属性赋值</span><br><span class="line">$( &quot;.greatphoto&quot; ).attr( &quot;alt&quot;, &quot;Beijing Brush Seller&quot; );</span><br><span class="line"></span><br><span class="line">$( &quot;.greatphoto&quot; ).attr(&#123;</span><br><span class="line">  alt: &quot;Beijing Brush Seller&quot;,</span><br><span class="line">  title: &quot;photo by Kelly Clark&quot;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$( &quot;.greatphoto&quot; ).attr( &quot;title&quot;, function( i, val ) &#123;</span><br><span class="line">  return val + &quot; - photo by Kelly Clark&quot;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<li><p>获取和设置元素属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//获取元素特定属性的值</span><br><span class="line">var title = $( &quot;em&quot; ).attr( &quot;title&quot; );</span><br><span class="line">//为元素属性赋值</span><br><span class="line">$( &quot;.greatphoto&quot; ).attr( &quot;alt&quot;, &quot;Beijing Brush Seller&quot; );</span><br><span class="line"></span><br><span class="line">$( &quot;.greatphoto&quot; ).attr(&#123;</span><br><span class="line">  alt: &quot;Beijing Brush Seller&quot;,</span><br><span class="line">  title: &quot;photo by Kelly Clark&quot;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$( &quot;.greatphoto&quot; ).attr( &quot;title&quot;, function( i, val ) &#123;</span><br><span class="line">  return val + &quot; - photo by Kelly Clark&quot;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><a href="http://js.jirengu.com/kulin/1" target="_blank" rel="noopener">代码8</a><br><a href="http://js.jirengu.com/hejon/1" target="_blank" rel="noopener">代码9</a><br><a href="http://js.jirengu.com/cipul/1" target="_blank" rel="noopener">代码10</a><br><a href="http://js.jirengu.com/wuwub/1" target="_blank" rel="noopener">代码11</a></p>
 </li>
 </ul>
-<p><a href="http://js.jirengu.com/kulin/1" target="_blank" rel="noopener">代码8</a><br><a href="http://js.jirengu.com/hejon/1" target="_blank" rel="noopener">代码9</a><br><a href="http://js.jirengu.com/cipul/1" target="_blank" rel="noopener">代码10</a><br><a href="http://js.jirengu.com/wuwub/1" target="_blank" rel="noopener">代码11</a></p>
 
       
     </div>
@@ -770,8 +770,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1012,6 +1021,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定事件和解绑事件推荐使用on-和off"><span class="nav-number">1.</span> <span class="nav-text">绑定事件和解绑事件推荐使用on()和off()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
