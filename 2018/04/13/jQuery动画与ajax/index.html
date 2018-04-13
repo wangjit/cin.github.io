@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/cin.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/cin.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italicLobster Two:300,300italic,400,400italic,700,700italicPT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/cin.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/cin.github.io/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/cin.github.io/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/cin.github.io/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/cin.github.io/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/cin.github.io/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/cin.github.io/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="题目1： jQuery 中， $(document).ready()是什么意思？$(document).ready()方法：为防止DOM解析完成之前运行Jquery代码，若在DOM解析完成前就运行函数，操作可能失败。必须在DOM解析完成完后执行操作，可使用ready事件，作用相当于把js写到body末尾。$(document).ready()写法：  $(document).redy(functi">
+<meta name="keywords" content="ajax,jQuery动画">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery动画与ajax">
+<meta property="og:url" content="https://wangjit.github.io/cin.github.io/2018/04/13/jQuery动画与ajax/index.html">
+<meta property="og:site_name" content="cin">
+<meta property="og:description" content="题目1： jQuery 中， $(document).ready()是什么意思？$(document).ready()方法：为防止DOM解析完成之前运行Jquery代码，若在DOM解析完成前就运行函数，操作可能失败。必须在DOM解析完成完后执行操作，可使用ready事件，作用相当于把js写到body末尾。$(document).ready()写法：  $(document).redy(functi">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-6ef302d7ae427c7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-1aa57a60f9448969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-13T04:32:11.675Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery动画与ajax">
+<meta name="twitter:description" content="题目1： jQuery 中， $(document).ready()是什么意思？$(document).ready()方法：为防止DOM解析完成之前运行Jquery代码，若在DOM解析完成前就运行函数，操作可能失败。必须在DOM解析完成完后执行操作，可使用ready事件，作用相当于把js写到body末尾。$(document).ready()写法：  $(document).redy(functi">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/6782687-6ef302d7ae427c7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+
+
+
+  <link rel="canonical" href="https://wangjit.github.io/cin.github.io/2018/04/13/jQuery动画与ajax/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>jQuery动画与ajax | cin</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/wangjit" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/cin.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Welcome to wjt's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home menu-item-active">
+    <a href="/cin.github.io/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/cin.github.io/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />归档<span class="badge">41</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/cin.github.io/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">18</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/cin.github.io/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">62</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-commonweal">
+    <a href="/cin.github.io/404/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-sitemap">
+    <a href="/cin.github.io/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/cin.github.io/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-angellist"></i> <br />关于</a>
+</li>
+
+      
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/jQuery动画与ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/cin.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">jQuery动画与ajax
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T12:31:10+08:00">2018-04-13</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/cin.github.io/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/cin.github.io/categories/前端/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/cin.github.io/categories/前端/JS/jQuery/" itemprop="url" rel="index"><span itemprop="name">jQuery</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/cin.github.io/2018/04/13/jQuery动画与ajax/" class="leancloud_visitors" data-flag-title="jQuery动画与ajax">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">4.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">0:05</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="题目1：-jQuery-中，-document-ready-是什么意思？"><a href="#题目1：-jQuery-中，-document-ready-是什么意思？" class="headerlink" title="题目1： jQuery 中， $(document).ready()是什么意思？"></a><strong>题目1：</strong> jQuery 中， $(document).ready()是什么意思？</h4><p><code>$(document).ready()</code>方法：为防止DOM解析完成之前运行Jquery代码，若在DOM解析完成前就运行函数，操作可能失败。必须在DOM解析完成完后执行操作，可使用ready事件，作用相当于把js写到body末尾。<br><code>$(document).ready()</code>写法：</p>
+<ul>
+<li><code>$(document).redy(function(){})</code></li>
+<li><p><code>$(function(){})</code><br><strong>以上两种写法是等价的</strong></p>
+<h4 id="题目2：-node-html-和-node-text-的区别"><a href="#题目2：-node-html-和-node-text-的区别" class="headerlink" title="题目2： $node.html()和$node.text()的区别?"></a><strong>题目2：</strong> $node.html()和$node.text()的区别?</h4><p><code>$node.html()</code>，返回所选择元素内的html内容，包含html标签和文本内容。<br><code>$node.text()</code>，返回所选择元素内的文本内容，不包含html标签，只包含文本内容。</p>
+<h4 id="题目3：-extend-的作用和用法"><a href="#题目3：-extend-的作用和用法" class="headerlink" title="题目3： $.extend 的作用和用法?"></a><strong>题目3：</strong> $.extend 的作用和用法?</h4><p>作用：将两个或更多对象的内容合并到第一个对象。<br>用法：<code>jQuery.extend( [deep ], target, object1 [, objectN ] )</code></p>
+</li>
+<li><strong>deep</strong><br>类型: Boolean<br>默认情况下是false，如果是true，合并成为递归（又叫做深拷贝）。</li>
+<li><strong>target</strong><br>类型: Object<br>对象扩展。这将接收新的属性。</li>
+<li><strong>object1</strong><br>类型: Object<br>一个对象，它包含额外的属性合并到第一个参数。</li>
+<li><strong>objectN</strong><br>类型: Object<br>包含额外的属性合并到第一个参数</li>
+</ul>
+<p>一个简单的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/*定义一个对象*/</span><br><span class="line">var obj=&#123;</span><br><span class="line">    name:&apos;jrg&apos;,</span><br><span class="line">    age:27,</span><br><span class="line">    sex:&apos;woman&apos;</span><br><span class="line">&#125;;</span><br><span class="line">/*定义一个新对象*/</span><br><span class="line">var newObj=&#123;</span><br><span class="line">    name:&apos;wjt&apos;,</span><br><span class="line">    age:20</span><br><span class="line">&#125;;</span><br><span class="line">/* $.extend()接受多个参数,并且第一个对象被覆盖 */</span><br><span class="line">$.extend(obj,newObj,&#123;</span><br><span class="line">    name:&apos;maomao&apos;,</span><br><span class="line">    age:25,</span><br><span class="line">    like:&apos;eat&apos;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(obj);</span><br><span class="line">/*object&#123;</span><br><span class="line">  age:25,</span><br><span class="line">  like:&quot;eat&quot;,</span><br><span class="line">  name:&quot;maomao&quot;,</span><br><span class="line">  sex:&quot;woman&quot;</span><br><span class="line">*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>题目4：</strong> jQuery 的链式调用是什么？</p>
+<blockquote>
+<p>jQuery链式调用：在对象上一次性调动多个方法，例如：<br><code>$(this).addClass(&quot;active&quot;).siblings().removeClass(&quot;active&quot;);</code><br>因为大部分对象方法的最后是return this，所以有了链式调用，简易代码。</p>
+</blockquote>
+<p><strong>题目5：</strong> jQuery 中 data 函数的作用<br><code>.data()</code> 方法允许我们在DOM元素上绑定任意类型的数据,避免了循环引用的内存泄漏风险。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">console.log($(&quot;#k-box&quot;).data(&quot;bkk&quot;)); //undefined</span><br><span class="line">$(&quot;#k-box&quot;).data(&quot;bkk&quot;,&quot;word&quot;); //设置bkk为word</span><br><span class="line">console.log($(&quot;#k-box&quot;).data(&quot;bkk&quot;)); //word</span><br><span class="line">$(&quot;#k-box&quot;).removeData(&quot;bkk&quot;); //移除bkk设置的值</span><br><span class="line">console.log($(&quot;#k-box&quot;).data(&quot;bkk&quot;)); //undefined</span><br><span class="line"></span><br><span class="line">$(&quot;#v-box&quot;).data(&quot;test&quot;,&#123;first:0,last:28&#125;); //给存储名为test的对象存储内容&#123;first:0,last:28&#125;</span><br><span class="line">console.log($(&quot;#v-box&quot;).data(&quot;test&quot;).first); //0</span><br><span class="line">console.log($(&quot;#v-box&quot;).data(&quot;test&quot;).last); //28</span><br><span class="line">console.log($(&quot;#v-box&quot;).data(&quot;test&quot;)); //&#123;first: 0, last: 28&#125;</span><br><span class="line">$(&quot;#v-box&quot;).removeData(&quot;test&quot;); //移除test设置的内容</span><br><span class="line">console.log($(&quot;#v-box&quot;).data(&quot;test&quot;)); //undefined</span><br></pre></td></tr></table></figure></p>
+<p><strong>题目6：</strong>写出以下功能对应的 jQuery 方法：</p>
+<ul>
+<li>给元素 $node 添加 class active，给元素 $noed 删除 class active<br><code>$node.addClass(&#39;active&#39;);//给元素 $node 添加 class active</code><br><code>$node.removeClass(&#39;active&#39;);//给元素 $noed 删除 class active</code></li>
+<li>展示元素$node, 隐藏元素$node<br><code>$node.show();//展示元素$node</code><br><code>$node.hide();//隐藏元素$node</code></li>
+<li>获取元素$node 的 属性: id、src、title， 修改以上属性<br><code>$node.attr(&#39;id&#39;);//获取元素$node 的 属性 id</code><br><code>$node.attr(&#39;id&#39;,&#39;修改id值&#39;);//修改元素$node 的 id 值</code><br><code>$node.attr(&#39;src&#39;);//获取元素$node 的 属性 src</code><br><code>$node.attr(&#39;src&#39;,&#39;修改src值&#39;);//修改元素$node 的 src 值</code><br><code>$node.attr(&#39;title&#39;);//获取元素$node 的 属性 title</code><br><code>$node.attr(&#39;title&#39;,&#39;修改title值&#39;);//修改元素$node 的 title 值</code></li>
+<li>给$node 添加自定义属性data-src<br><code>$node.data(&#39;data-src&#39;,&#39;自定义属性值&#39;);</code></li>
+<li>在$ct 内部最开头添加元素$node<br><code>$ct.prepend($node);</code></li>
+<li>在$ct 内部最末尾添加元素$node<br><code>$ct.append($node);</code></li>
+<li>删除$node<br><code>$node.remove();</code></li>
+<li>把$ct里内容清空<br><code>$node.empty();</code></li>
+<li>在$ct 里设置 html <div class="btn"></div><br><code>$ct.html(&#39;&lt;div class=&quot;btn&quot;&gt;&lt;/div&gt;&#39;);</code></li>
+<li><p>获取、设置$node 的宽度、高度(分别不包括内边距、包括内边距、包括边框、包括外边距)<br><code>$node.width();//获取$node 的宽度（不包括内边距）</code><br><code>$node.height();//获取$node 的高度（不包括内边距）</code><br><code>$node.width(&#39;10px&#39;);//设置$node 的宽度（不包括内边距）</code><br><code>$node.height(&#39;10px&#39;);//设置$node 的高度（不包括内边距）</code></p>
+<p><code>$node.innerWidth();//获取$node 的宽度（包括内边距）</code><br><code>$node.innerHeight();//获取$node 的高度（包括内边距）</code><br><code>$node.innerWidth(&#39;10px&#39;);//设置$node 的宽度（包括内边距）</code><br><code>$node.innerHeight(&#39;10px&#39;);//设置$node 的高度（包括内边距）</code></p>
+<p><code>$node.outerWidth();//获取$node 的宽度（包括边框）</code><br><code>$node.outerHeight();//获取$node 的高度（包括边框）</code><br><code>$node.outerWidth(&#39;10px&#39;);//设置$node 的宽度（包括边框）</code><br><code>$node.outerHeight(&#39;10px&#39;);//设置$node 的高度（包括边框）</code></p>
+<p><code>$node.outerWidth(true);//获取$node 的宽度（包括边框）</code><br><code>$node.outerHeight(true);//获取$node 的高度（包括边框）</code><br><code>$node.outerWidth(&#39;10px&#39;,true);//设置$node 的宽度（包括外边距）</code><br><code>$node.outerHeight(&#39;10px&#39;,true);//设置$node 的高度（包括外边距）</code></p>
+</li>
+<li>获取窗口滚动条垂直滚动距离<br><code>$(window).scrollTop();</code></li>
+<li>获取$node 到根节点水平、垂直偏移距离<br><code>$node.offset().left</code><br><code>$node.offset().top</code></li>
+<li>修改$node 的样式，字体颜色设置红色，字体大小设置14px<br><code>$node.css({&quot;color&quot;: &quot;red&quot;,&quot;font-size&quot;: &quot;14px&quot;})</code></li>
+<li><p>遍历节点，把每个节点里面的文本内容重复一遍</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$node.each(function()&#123;</span><br><span class="line">  $(this).text($(this).text() + $(this).text());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从$ct 里查找 class 为 .item的子元素<br><code>$ct.find(&#39;.item&#39;);</code></p>
+</li>
+<li>获取$ct 里面的所有孩子<br><code>$ct.children();</code></li>
+<li>对于$node，向上找到 class 为’.ct’的父亲，在从该父亲找到’.panel’的孩子<br><code>$node.parents(&#39;.ct&#39;).find(&#39;.panel&#39;);</code></li>
+<li>获取选择元素的数量<br><code>$node.length;</code></li>
+<li>获取当前元素在兄弟中的排行<br><code>$node.index();</code></li>
+</ul>
+<p><strong>题目7：</strong>用jQuery实现以下操作</p>
+<ul>
+<li>当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</li>
+<li>当窗口滚动时，获取垂直滚动距离</li>
+<li>当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</li>
+<li>当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</li>
+<li>当选择 select 后，获取用户选择的内容<br><a href="http://js.jirengu.com/dehig/3" target="_blank" rel="noopener">代码链接</a></li>
+</ul>
+<p><strong>题目8：</strong> 用 jQuery ajax 实现如下效果。当点击加载更多会加载数据展示到页面   <a href="http://jrgzuoye.applinzi.com/%E4%BD%9C%E4%B8%9A%E5%AE%89%E6%8E%92/jscode/JS9-jqueryajax/1.html" target="_blank" rel="noopener">效果预览</a></p>
+<p><a href="https://github.com/wangjit/jirengu/tree/master/%E8%BF%9B%E9%98%B615" target="_blank" rel="noopener">代码链接</a><br><img src="http://upload-images.jianshu.io/upload_images/6782687-6ef302d7ae427c7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="效果截图1"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/6782687-1aa57a60f9448969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="效果截图2"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/cin.github.io/2018/04/13/jQuery动画与ajax/">jQuery动画与ajax</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 cin 的个人博客">cin</a></p>
+  <p><span>发布时间:</span>2018年04月13日 - 12:04</p>
+  <p><span>最后更新:</span>2018年04月13日 - 12:04</p>
+  <p><span>原始链接:</span><a href="/cin.github.io/2018/04/13/jQuery动画与ajax/" title="jQuery动画与ajax">https://wangjit.github.io/cin.github.io/2018/04/13/jQuery动画与ajax/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://wangjit.github.io/cin.github.io/2018/04/13/jQuery动画与ajax/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      </div>
+    
+
+    
+
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/cin.github.io/tags/ajax/" rel="tag"><i class="fa fa-tag"></i> ajax</a>
+          
+            <a href="/cin.github.io/tags/jQuery动画/" rel="tag"><i class="fa fa-tag"></i> jQuery动画</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/cin.github.io/2018/04/13/jQuery选择器-Dom操作-样式-事件处理-动画/" rel="next" title="jQuery选择器_Dom操作_样式_事件处理_动画">
+                <i class="fa fa-chevron-left"></i> jQuery选择器_Dom操作_样式_事件处理_动画
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/cin.github.io/2018/04/13/懒加载/" rel="prev" title="懒加载">
+                懒加载 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">cin</p>
+              <p class="site-description motion-element" itemprop="description">学习日记</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/cin.github.io/archives/">
+                
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/cin.github.io/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/cin.github.io/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wangjit" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="523021368@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目1：-jQuery-中，-document-ready-是什么意思？"><span class="nav-number">1.</span> <span class="nav-text">题目1： jQuery 中， $(document).ready()是什么意思？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目2：-node-html-和-node-text-的区别"><span class="nav-number">2.</span> <span class="nav-text">题目2： $node.html()和$node.text()的区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目3：-extend-的作用和用法"><span class="nav-number">3.</span> <span class="nav-text">题目3： $.extend 的作用和用法?</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共39.6k字</span>
+</div>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">112k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读时长">1:52</span>
+  
+</div>
+
+
+
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/cin.github.io/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/cin.github.io/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/cin.github.io/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/cin.github.io/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/cin.github.io/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("tDgFOQliNqT57l7f0AwrX650-gzGzoHsz", "6djBmHU6p3fOmaLJkrURpLEd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: ,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
+

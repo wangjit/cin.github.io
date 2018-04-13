@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/cin.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/cin.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italicLobster Two:300,300italic,400,400italic,700,700italicPT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/cin.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/cin.github.io/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/cin.github.io/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/cin.github.io/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/cin.github.io/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/cin.github.io/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/cin.github.io/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响? 浮动模型也是一种可视化格式模型，浮动的框可以左右移动（根据float属性值而定），直到它的外边缘碰到包含框或者另一个浮动元素的框的边缘。浮动元素不在文档的普通流中，文档的普通流中的元素表现的就像浮动元素不存在一样. 对父容器的影响：如果父容器的子元素都是浮动元素，那么父容器会失去高度，在浮动元素之外。视觉上，父容器没有包含">
+<meta name="keywords" content="css,BFC,浮动,定位,边距,合并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浮动定位BFC边距合并">
+<meta property="og:url" content="https://wangjit.github.io/cin.github.io/2018/04/13/浮动定位BFC边距合并/index.html">
+<meta property="og:site_name" content="cin">
+<meta property="og:description" content="浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响? 浮动模型也是一种可视化格式模型，浮动的框可以左右移动（根据float属性值而定），直到它的外边缘碰到包含框或者另一个浮动元素的框的边缘。浮动元素不在文档的普通流中，文档的普通流中的元素表现的就像浮动元素不存在一样. 对父容器的影响：如果父容器的子元素都是浮动元素，那么父容器会失去高度，在浮动元素之外。视觉上，父容器没有包含">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-0199c9f05ea3f527.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-d8e7557a4ca46be0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-fc9c9274bf31c6df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-fcf97bfdfb500fb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-13T03:56:31.314Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浮动定位BFC边距合并">
+<meta name="twitter:description" content="浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响? 浮动模型也是一种可视化格式模型，浮动的框可以左右移动（根据float属性值而定），直到它的外边缘碰到包含框或者另一个浮动元素的框的边缘。浮动元素不在文档的普通流中，文档的普通流中的元素表现的就像浮动元素不存在一样. 对父容器的影响：如果父容器的子元素都是浮动元素，那么父容器会失去高度，在浮动元素之外。视觉上，父容器没有包含">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/6782687-0199c9f05ea3f527.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+
+
+
+  <link rel="canonical" href="https://wangjit.github.io/cin.github.io/2018/04/13/浮动定位BFC边距合并/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>浮动定位BFC边距合并 | cin</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/wangjit" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/cin.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Welcome to wjt's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home menu-item-active">
+    <a href="/cin.github.io/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/cin.github.io/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />归档<span class="badge">41</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/cin.github.io/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">18</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/cin.github.io/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">62</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-commonweal">
+    <a href="/cin.github.io/404/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-sitemap">
+    <a href="/cin.github.io/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/cin.github.io/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-angellist"></i> <br />关于</a>
+</li>
+
+      
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/浮动定位BFC边距合并/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/cin.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浮动定位BFC边距合并
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T11:55:12+08:00">2018-04-13</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/cin.github.io/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/cin.github.io/categories/前端/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/cin.github.io/2018/04/13/浮动定位BFC边距合并/" class="leancloud_visitors" data-flag-title="浮动定位BFC边距合并">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">4.5k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">0:05</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响"><a href="#浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响" class="headerlink" title="浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响?"></a>浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响?</h4><ul>
+<li>浮动模型也是一种可视化格式模型，浮动的框可以左右移动（根据float属性值而定），直到它的外边缘碰到包含框或者另一个浮动元素的框的边缘。浮动元素不在文档的普通流中，文档的普通流中的元素表现的就像浮动元素不存在一样.<ul>
+<li>对父容器的影响：如果父容器的子元素都是浮动元素，那么父容器会失去高度，在浮动元素之外。视觉上，父容器没有包含住浮动的子元素。本次任务的最后一个代码通过在父容器内新增一个块级普通流元素使父容器撑起所有元素</li>
+<li>其它浮动元素的影响：如果包含块太窄无法容纳水平排列的全部浮动元素，那么其它浮动元素会向下移动，直到有足够的空间，而如果浮动元素的高度不同，那么向下移动的时候可能会被卡住。</li>
+<li>普通元素的影响：普通元素会视浮动元素不见，占据浮动元素原有的位置，但会被浮动元素遮罩。</li>
+<li>对文字的影响：文字会感知到浮动元素的存在，会留出空间，形成环绕效果。</li>
+</ul>
+</li>
+</ul>
+<h4 id="清除浮动指什么-如何清除浮动-两种以上方法"><a href="#清除浮动指什么-如何清除浮动-两种以上方法" class="headerlink" title="清除浮动指什么? 如何清除浮动? 两种以上方法"></a>清除浮动指什么? 如何清除浮动? 两种以上方法</h4><ul>
+<li>清除浮动就是解决父容器高度塌陷问题，通俗来讲就是使父容器在视觉上包裹住子元素，可以在父容器的最后面新增一个元素，也可以：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/*方法1*/</span><br><span class="line">.clearfix&#123;</span><br><span class="line">    *zoom:1;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after&#123;</span><br><span class="line">    content:&quot;&quot;;</span><br><span class="line">    display:block;</span><br><span class="line">    clear:left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*方法2*/</span><br><span class="line">.clearfix&#123;</span><br><span class="line">  *zoom:1;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after&#123;</span><br><span class="line">  content:&quot;&quot;;</span><br><span class="line">    display:table;</span><br><span class="line">    clear:both;/*原理类似于给父容器内部最底端新增一个元素*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>虽然我们得出了一种浏览器兼容的靠谱解决方案，但这并不代表我们一定得用这种方式，很多时候我们的父容器本身需要position：absolute等形成了BFC的时候我们可以直接利用这些属性了，总而言之清理浮动两种方式：利用 clear属性、使父容器形成BFC</p>
+<ul>
+<li><a href="https://www.w3.org/TR/CSS21/visuren.html#block-formatting" target="_blank" rel="noopener">BFC清理浮动</a><blockquote>
+<ul>
+<li>BFC会阻止垂直外边距（margin-top、margin-bottom）折叠<br>按照BFC的定义，只有同属于一个BFC时，两个元素才有可能发生垂直Margin的重叠，这个包括相邻元素，嵌套元素，只要他们之间没有阻挡(例如边框，非空内容，padding等)就会发生margin重叠。<br>因此要解决margin重叠问题，只要让它们不在同一个BFC就行了，但是对于两个相邻元素来说，意义不大，没有必要给它们加个外壳，但是对于嵌套元素来说就很有必要，只要把父元素设为BFC就可以。这样，元素的margin就不会和父元素的margin发生重叠<br>BFC不会重叠浮动元素<br>BFC可以包含浮动<br>可以利用“BFC可以包含浮动”这一特性来“清浮动”，这里其实说清浮动已经不再合适，应该说包含浮动。也就是说只要父容器形成BFC就可以，以下几种方式可以形成BFC</li>
+</ul>
+<ul>
+<li>float为 left|right</li>
+<li>overflow为 hidden|auto|scroll</li>
+<li>display为 table-cell|table-caption|inline-block</li>
+<li>position为 absolute|fixed<br>对父容器添加一些属性可以形成BFC达到“清浮动”效果，例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;border: solid 5px #0e0; width:300px;overflow:hidden;&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;height: 100px; width: 100px; background-color: Red;  float:left;&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;height: 100px; width: 100px; background-color: Green;  float:left;&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;height: 100px; width: 100px; background-color: Yellow;  float:left;&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>用BFC使用float的时候会使父容器长度缩短，而且还有个重要缺陷——父容器float解决了其塌陷问题，那么父容器的父容器怎么办？overflow属性会影响滚动条和绝对定位的元素；position会改变元素的定位方式，这是我们不希望的，display这几种方式依然没有解决低版本IE问题<br>IE6、7内有个hasLayout的概念，当元素的hasLayout属性值为true的时候会达到和BFC类似的效果，元素负责本身及其子元素的尺寸设置和定位。 下面这些设置可以使元素hasLayout为true<br>position: absolute<br>float: left|right<br>display: inline-block<br>width: 除 “auto” 外的任意值<br>height: 除 “auto” 外的任意值<br>zoom: 除 “normal” 外的任意值<br>writing-mode: tb-rl<br>在IE7中使用overflow: hidden|scroll|auto 也可以使hasLayout为true</p>
+<h4 id="有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？"><a href="#有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？" class="headerlink" title="有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？"></a>有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？</h4><table>
+<thead>
+<tr>
+<th>值</th>
+<th>属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承 position 属性的值</td>
+</tr>
+<tr>
+<td>static</td>
+<td>默认值，没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）</td>
+</tr>
+<tr>
+<td>relative</td>
+<td>生成相对定位的元素，相对于元素本身正常位置进行定位,因此，left:20px 会向元素的 left位置添加20px</td>
+</tr>
+<tr>
+<td>absolute</td>
+<td>生成绝对定位的元素，相对于static定位以外的第一个祖先元素（offset parent）进行定位,元素的位置通过 left, top, right 以及 bottom 属性进行规定</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>生成绝对定位的元素，相对于浏览器窗口进行定位。元素的位置通过 left, top, right 以及 bottom属性进行规定</td>
+</tr>
+<tr>
+<td>sticky</td>
+<td>CSS3新属性，表现类似position:relative和position:fixed的合体，在目标区域在屏幕中可见时，它的行为就像position:relative; 而当页面滚动超出目标区域时，它的表现就像position:fixed，它会固定在目标位置</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>fixed<br>固定定位，参照位置是浏览器窗口的左上角，即坐标点为(0px, 0px)<br>absolute<br>绝对定位，参展位置是离当前元素最近的定位方式为fixed,absolute,relative的祖先原则的左上角</p>
+</blockquote>
+<h4 id="z-index-有什么作用-如何使用"><a href="#z-index-有什么作用-如何使用" class="headerlink" title="z-index 有什么作用? 如何使用?"></a>z-index 有什么作用? 如何使用?</h4><blockquote>
+<p>在 CSS 2.1中, 所有的盒模型元素都处于三维坐标系中。 除了我们常用的横坐标和纵坐标， 盒模型元素还可以沿着“z轴”层叠摆放， 当他们相互覆盖时， z轴顺序就变得十分重要<br>这意味着其实CSS允许你在现有的渲染引擎上层叠的摆放盒模型元素。 所有的层都可以用一个整数(z轴顺序)来表明当前层在z轴的位置。 数字越大， 元素越接近观察者。Z轴顺序用CSS的<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index" target="_blank" rel="noopener">z-index
+</a>属性来指定。<br>要特别注意：<br>z-index仅在设置了position非static属性的元素生效<br>z-index的值只能在兄弟元素之间比较<br>z-index默认值为auto，则不建立层叠上下文。设置为0则会建立层叠上下文</p>
+</blockquote>
+<h4 id="position-relative和负margin都可以使元素位置发生偏移-二者有什么区别"><a href="#position-relative和负margin都可以使元素位置发生偏移-二者有什么区别" class="headerlink" title="position:relative和负margin都可以使元素位置发生偏移?二者有什么区别"></a>position:relative和负margin都可以使元素位置发生偏移?二者有什么区别</h4><ul>
+<li>position:relative;只相对自己原本位置发生偏移，不影响其它普通流中元素的位置。</li>
+<li>margin：除了让元素自身发生偏移还影响其它普通流中的元素。</li>
+</ul>
+<h4 id="BFC-是什么？如何生成-BFC？BFC-有什么作用？举例说明"><a href="#BFC-是什么？如何生成-BFC？BFC-有什么作用？举例说明" class="headerlink" title="BFC 是什么？如何生成 BFC？BFC 有什么作用？举例说明"></a>BFC 是什么？如何生成 BFC？BFC 有什么作用？举例说明</h4><blockquote>
+<p>浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visiable”的块级盒子，都会为他们的内容创建新的BFC（块级格式上下文）。<br>在BFC中，盒子从顶端开始垂直地一个接一个地排列，两个盒子之间的垂直的间隙是由他们的margin 值所决定的。在一个BFC中，两个相邻的块级盒子的垂直外边距会产生折叠。<br>在BFC中，每一个盒子的左外边缘（margin-left）会触碰到容器的左边缘(border-left)（对于从右到左的格式来说，则触碰到右边缘）。</p>
+</blockquote>
+<ul>
+<li>对元素设置以下属性就可以生成BFC：<br>float: left | right;<br>overflow: hidden | auto | scroll;<br>display: table-cell | table-caption | inline-block;<br>position: absolute | fixed;</li>
+<li>BFC的作用有：<br>（1）    解决margin重叠问题。所谓margin重叠是指处于同一个BFC的相邻元素、嵌套元素，只要它们之间没有阻挡（如：边框、非空内容、padding等）就会发生margin重叠。这是只要让其中一个元素生成新的BFC就能解决margin重叠问题。<br>（2）    清除浮动。因为BFC可以包含浮动，所以让父容器生成新的BFC可以让父容器在视觉上包围了浮动的子元素，因而清除了浮动</li>
+</ul>
+<h4 id="在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例"><a href="#在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例" class="headerlink" title="在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例"></a>在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例</h4><ul>
+<li><a href="http://js.jirengu.com/habacopafe/1/edit" target="_blank" rel="noopener">当同属于一个BFC时，两个元素有可能发生垂直Margin的重叠，这个包括相邻元素，嵌套元素，只要他们之间没有阻挡(例如边框，非空内容，padding等)就会发生margin重叠</a></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/6782687-0199c9f05ea3f527.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li><a href="http://js.jirengu.com/cuxiliwuzo/1/edit" target="_blank" rel="noopener">两个兄弟元素在垂直方向上合并外边距，取较大值进行合并</a></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/6782687-d8e7557a4ca46be0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li><a href="http://js.jirengu.com/rudoxomoxe/1/edit" target="_blank" rel="noopener">外边距自己和自己合并，取较大值进行合并</a></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/6782687-fc9c9274bf31c6df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a href="http://js.jirengu.com/faxicazeke/1/edit" target="_blank" rel="noopener">若该元素垂直方向上的兄弟元素也有外边距，那么垂直方向的外边距依旧会发生合并</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/6782687-fcf97bfdfb500fb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p>特别地，</p>
+<ul>
+<li>当 margin 都是负值的时候，取的是其中绝对值较大的，然后，从0位置，负向位移；</li>
+<li>当有正有负的时候，先取出负 margin 中绝对值中最大的，然后，和正 margin 值中最大的 -<br>margin 相加。</li>
+<li>所有毗邻的margin要一起参与运算，不能分步进行。</li>
+</ul>
+</blockquote>
+<p><a href="https://wangjit.github.io/jirengu/10-1.html">任务10代码1</a></p>
+<p><a href="https://wangjit.github.io/jirengu/10-2.html">任务10代码2</a></p>
+<p><a href="https://wangjit.github.io/jirengu/10-3.html">任务10代码3</a></p>
+<p><a href="https://wangjit.github.io/jirengu/10-4.html">任务10代码4</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/cin.github.io/2018/04/13/浮动定位BFC边距合并/">浮动定位BFC边距合并</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 cin 的个人博客">cin</a></p>
+  <p><span>发布时间:</span>2018年04月13日 - 11:04</p>
+  <p><span>最后更新:</span>2018年04月13日 - 11:04</p>
+  <p><span>原始链接:</span><a href="/cin.github.io/2018/04/13/浮动定位BFC边距合并/" title="浮动定位BFC边距合并">https://wangjit.github.io/cin.github.io/2018/04/13/浮动定位BFC边距合并/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://wangjit.github.io/cin.github.io/2018/04/13/浮动定位BFC边距合并/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      </div>
+    
+
+    
+
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/cin.github.io/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+          
+            <a href="/cin.github.io/tags/BFC/" rel="tag"><i class="fa fa-tag"></i> BFC</a>
+          
+            <a href="/cin.github.io/tags/浮动/" rel="tag"><i class="fa fa-tag"></i> 浮动</a>
+          
+            <a href="/cin.github.io/tags/定位/" rel="tag"><i class="fa fa-tag"></i> 定位</a>
+          
+            <a href="/cin.github.io/tags/边距/" rel="tag"><i class="fa fa-tag"></i> 边距</a>
+          
+            <a href="/cin.github.io/tags/合并/" rel="tag"><i class="fa fa-tag"></i> 合并</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/cin.github.io/2018/04/13/css常见样式2/" rel="next" title="css常见样式2">
+                <i class="fa fa-chevron-left"></i> css常见样式2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/cin.github.io/2018/04/13/css课程笔记/" rel="prev" title="css课程笔记">
+                css课程笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">cin</p>
+              <p class="site-description motion-element" itemprop="description">学习日记</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/cin.github.io/archives/">
+                
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/cin.github.io/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/cin.github.io/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wangjit" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="523021368@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响"><span class="nav-number">1.</span> <span class="nav-text">浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除浮动指什么-如何清除浮动-两种以上方法"><span class="nav-number">2.</span> <span class="nav-text">清除浮动指什么? 如何清除浮动? 两种以上方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？"><span class="nav-number">3.</span> <span class="nav-text">有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#z-index-有什么作用-如何使用"><span class="nav-number">4.</span> <span class="nav-text">z-index 有什么作用? 如何使用?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#position-relative和负margin都可以使元素位置发生偏移-二者有什么区别"><span class="nav-number">5.</span> <span class="nav-text">position:relative和负margin都可以使元素位置发生偏移?二者有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC-是什么？如何生成-BFC？BFC-有什么作用？举例说明"><span class="nav-number">6.</span> <span class="nav-text">BFC 是什么？如何生成 BFC？BFC 有什么作用？举例说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例"><span class="nav-number">7.</span> <span class="nav-text">在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共39.6k字</span>
+</div>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">112k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读时长">1:52</span>
+  
+</div>
+
+
+
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/cin.github.io/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/cin.github.io/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/cin.github.io/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/cin.github.io/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/cin.github.io/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("tDgFOQliNqT57l7f0AwrX650-gzGzoHsz", "6djBmHU6p3fOmaLJkrURpLEd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: ,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
+

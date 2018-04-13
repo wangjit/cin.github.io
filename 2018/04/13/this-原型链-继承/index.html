@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/cin.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/cin.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italicLobster Two:300,300italic,400,400italic,700,700italicPT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/cin.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/cin.github.io/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/cin.github.io/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/cin.github.io/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/cin.github.io/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/cin.github.io/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/cin.github.io/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="问题1： apply、call 、bind有什么作用，什么区别 call apply，调用一个函数，传入函数执行上下文及参数语法很简单，第一个参数都是希望设置的this对象，不同之处在于call方法接收参数列表，而apply接收参数数组 12fn.call(context, param1, param2...)fn.apply(context, paramArray) 应用场景常常是这样的： 12">
+<meta name="keywords" content="前端,JS,this,原型链,继承">
+<meta property="og:type" content="article">
+<meta property="og:title" content="this_原型链_继承">
+<meta property="og:url" content="https://wangjit.github.io/cin.github.io/2018/04/13/this-原型链-继承/index.html">
+<meta property="og:site_name" content="cin">
+<meta property="og:description" content="问题1： apply、call 、bind有什么作用，什么区别 call apply，调用一个函数，传入函数执行上下文及参数语法很简单，第一个参数都是希望设置的this对象，不同之处在于call方法接收参数列表，而apply接收参数数组 12fn.call(context, param1, param2...)fn.apply(context, paramArray) 应用场景常常是这样的： 12">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-d560368cd42f007d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-104491c543698be9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-edd67cb981a36a3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-13T04:37:47.401Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="this_原型链_继承">
+<meta name="twitter:description" content="问题1： apply、call 、bind有什么作用，什么区别 call apply，调用一个函数，传入函数执行上下文及参数语法很简单，第一个参数都是希望设置的this对象，不同之处在于call方法接收参数列表，而apply接收参数数组 12fn.call(context, param1, param2...)fn.apply(context, paramArray) 应用场景常常是这样的： 12">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/6782687-d560368cd42f007d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+
+
+
+  <link rel="canonical" href="https://wangjit.github.io/cin.github.io/2018/04/13/this-原型链-继承/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>this_原型链_继承 | cin</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/wangjit" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/cin.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Welcome to wjt's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home menu-item-active">
+    <a href="/cin.github.io/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/cin.github.io/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />归档<span class="badge">41</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/cin.github.io/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">18</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/cin.github.io/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">62</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-commonweal">
+    <a href="/cin.github.io/404/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-sitemap">
+    <a href="/cin.github.io/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/cin.github.io/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-angellist"></i> <br />关于</a>
+</li>
+
+      
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/this-原型链-继承/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/cin.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">this_原型链_继承
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T12:36:08+08:00">2018-04-13</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/cin.github.io/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/cin.github.io/categories/前端/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/cin.github.io/2018/04/13/this-原型链-继承/" class="leancloud_visitors" data-flag-title="this_原型链_继承">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">0:07</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="问题1：-apply、call-、bind有什么作用，什么区别"><a href="#问题1：-apply、call-、bind有什么作用，什么区别" class="headerlink" title="问题1： apply、call 、bind有什么作用，什么区别"></a>问题1： apply、call 、bind有什么作用，什么区别</h5><ul>
+<li><p>call apply，调用一个函数，传入函数执行上下文及参数<br>语法很简单，第一个参数都是希望设置的this对象，不同之处在于call方法接收参数列表，而apply接收参数数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fn.call(context, param1, param2...)</span><br><span class="line">fn.apply(context, paramArray)</span><br></pre></td></tr></table></figure>
+<p>应用场景常常是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//借用别的对象的方法</span><br><span class="line">var arr = [5, 10, 4, 0, 3];</span><br><span class="line">var max = Math.max.apply(null, arr),</span><br><span class="line">    Max = Math.max.call(null, 5, 10, 4, 0, 3);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Function.prototype.bind()</code>方法返回一个新函数，并将传入的第一个参数作为函数内部的this<br>语法：<br><code>fun.bind(thisArg[, arg1[, arg2[, ...]]])</code><br>典型例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">this.x = 9; </span><br><span class="line">var module = &#123;</span><br><span class="line">  x: 81,</span><br><span class="line">  getX: function() &#123; return this.x; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.getX(); // 返回 81</span><br><span class="line"></span><br><span class="line">var retrieveX = module.getX;</span><br><span class="line">retrieveX(); // 返回 9, 在这种情况下，&quot;this&quot;指向全局作用域</span><br><span class="line"></span><br><span class="line">// 创建一个新函数，将&quot;this&quot;绑定到module对象</span><br><span class="line">// 容易被全局的x变量和module里的属性x所迷惑</span><br><span class="line">var boundGetX = retrieveX.bind(module);</span><br><span class="line">boundGetX(); // 返回 81</span><br></pre></td></tr></table></figure>
+<p>强行绑定：<br><code>var fn1 = obj.fn.bind(obj1) //this从obj变为obj1</code></p>
+<h5 id="问题2：-以下代码输出什么"><a href="#问题2：-以下代码输出什么" class="headerlink" title="问题2： 以下代码输出什么?"></a>问题2： 以下代码输出什么?</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var john = &#123; </span><br><span class="line">  firstName: &quot;John&quot; </span><br><span class="line">&#125;</span><br><span class="line">function func() &#123; </span><br><span class="line">  alert(this.firstName + &quot;: hi!&quot;)</span><br><span class="line">&#125;</span><br><span class="line">john.sayHi = func</span><br><span class="line">john.sayHi()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/6782687-d560368cd42f007d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="题目2输出"></p>
+<h5 id="问题3：-下面代码输出什么，为什么"><a href="#问题3：-下面代码输出什么，为什么" class="headerlink" title="问题3： 下面代码输出什么，为什么"></a>问题3： 下面代码输出什么，为什么</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func() </span><br><span class="line">function func() &#123; </span><br><span class="line">  alert(this)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/6782687-104491c543698be9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="题目3输出"><br>原因：this指向调用方，函数在全局被调用，浏览器的全局的对象是Window</p>
+<h5 id="问题4：下面代码输出什么"><a href="#问题4：下面代码输出什么" class="headerlink" title="问题4：下面代码输出什么"></a>问题4：下面代码输出什么</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">document.addEventListener(&apos;click&apos;, function(e)&#123;</span><br><span class="line">    console.log(this);</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(this);</span><br><span class="line">    &#125;, 200);</span><br><span class="line">&#125;, false);</span><br><span class="line">//#document</span><br><span class="line">//Window</span><br></pre></td></tr></table></figure>
+<h5 id="问题5：下面代码输出什么，why"><a href="#问题5：下面代码输出什么，why" class="headerlink" title="问题5：下面代码输出什么，why"></a>问题5：下面代码输出什么，why</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var john = &#123; </span><br><span class="line">  firstName: &quot;John&quot; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function func() &#123; </span><br><span class="line">  alert( this.firstName )</span><br><span class="line">&#125;</span><br><span class="line">func.call(john)//输出john，call的第一个参数把被调用函数func()的</span><br><span class="line">                 执行上下文改为john</span><br></pre></td></tr></table></figure>
+<h5 id="问题6：-以下代码有什么问题，如何修改"><a href="#问题6：-以下代码有什么问题，如何修改" class="headerlink" title="问题6： 以下代码有什么问题，如何修改"></a>问题6： 以下代码有什么问题，如何修改</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var module= &#123;</span><br><span class="line">  bind: function()&#123;</span><br><span class="line">    $btn.on(&apos;click&apos;, function()&#123;</span><br><span class="line">      console.log(this) //this指$btn</span><br><span class="line">      this.showMsg();//此处的this即执行上下文是$btn，它没有对应的方法</span><br><span class="line">                       showMsg()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  showMsg: function()&#123;</span><br><span class="line">    console.log(&apos;饥人谷&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$btn = $(&apos;.click&apos;);</span><br><span class="line"></span><br><span class="line">  var module= &#123;</span><br><span class="line">    bind: function()&#123;</span><br><span class="line">      console.log(this);</span><br><span class="line">      var that = this;</span><br><span class="line">      $btn.on(&apos;click&apos;, function()&#123;</span><br><span class="line">        console.log(this); </span><br><span class="line">        that.showMsg();</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    showMsg: function()&#123;</span><br><span class="line">      console.log(&apos;饥人谷&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  module.bind();</span><br></pre></td></tr></table></figure></p>
+<h2 id="原型链相关问题"><a href="#原型链相关问题" class="headerlink" title="原型链相关问题"></a>原型链相关问题</h2><h5 id="问题7：有如下代码，解释Person、-prototype、proto、p、constructor之间的关联。"><a href="#问题7：有如下代码，解释Person、-prototype、proto、p、constructor之间的关联。" class="headerlink" title="问题7：有如下代码，解释Person、 prototype、proto、p、constructor之间的关联。"></a>问题7：有如下代码，解释Person、 prototype、<strong>proto</strong>、p、constructor之间的关联。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayName = function()&#123;</span><br><span class="line">    console.log(&apos;My name is :&apos; + this.name);</span><br><span class="line">&#125;</span><br><span class="line">var p = new Person(&quot;若愚&quot;)</span><br><span class="line">p.sayName();</span><br></pre></td></tr></table></figure>
+<p>①<code>p.__proto__ === Person.prototype</code><br>②<code>Person.prototype.constructor === Person</code><br>①,②===<code>p.__proto__.constructor === Person</code></p>
+<h5 id="问题8：-上例中，对对象-p可以这样调用-p-toString-。toString是哪里来的-画出原型图-并解释什么是原型链。"><a href="#问题8：-上例中，对对象-p可以这样调用-p-toString-。toString是哪里来的-画出原型图-并解释什么是原型链。" class="headerlink" title="问题8： 上例中，对对象 p可以这样调用 p.toString()。toString是哪里来的? 画出原型图?并解释什么是原型链。"></a>问题8： 上例中，对对象 p可以这样调用 p.toString()。toString是哪里来的? 画出原型图?并解释什么是原型链。</h5><p>toString是原型链上从object继承过来的方法</p>
+<blockquote>
+<p>原型链是针对构造函数的，比如我们先创建了一个函数，然后通过一个变量new了这个函数，那么这个被new出来的函数就会继承创建出来的那个函数的属性，当我访问new出来的这个函数的某个属性，在这个new出来的函数中没有定义这个变量，那么它就会往上（向创建出它的函数中）查找。如果找不到，还会重复上述查找过程往其父函数中查找。这个查找的过程就叫做原型链。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/6782687-edd67cb981a36a3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h5 id="问题9：对String做扩展，实现如下方式获取字符串中频率最高的字符"><a href="#问题9：对String做扩展，实现如下方式获取字符串中频率最高的字符" class="headerlink" title="问题9：对String做扩展，实现如下方式获取字符串中频率最高的字符"></a>问题9：对String做扩展，实现如下方式获取字符串中频率最高的字符</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;ahbbccdeddddfg&apos;;</span><br><span class="line">var ch = str.getMostOften();</span><br><span class="line">console.log(ch); //d , 因为d 出现了5次</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">String.prototype.getMostOften =function()&#123;</span><br><span class="line">  var obj = &#123;&#125;;</span><br><span class="line">  var mostStr = &#123;</span><br><span class="line">    str: &apos;&apos;,</span><br><span class="line">    count: 0</span><br><span class="line">  &#125;;</span><br><span class="line">  for(var i = 0;i &lt; this.length; i++)&#123;</span><br><span class="line">    if(obj[this[i]])&#123;</span><br><span class="line">      obj[this[i]]++</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">      obj[this[i]] = 1</span><br><span class="line">    &#125;</span><br><span class="line">    if(obj[this[i]] &gt; mostStr.count)&#123;</span><br><span class="line">      mostStr.str = this[i];</span><br><span class="line">      mostStr.count = obj[this[i]]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return &apos;The most frequent letter is &quot;&apos; + mostStr.str + &apos;&quot;,which has appeared &apos; + mostStr.count + &apos; times.&apos;;</span><br><span class="line">&#125;;</span><br><span class="line">var str = &apos;ahbbccdeddddfg&apos;;</span><br><span class="line">var ch = str.getMostOften();</span><br><span class="line">console.log(ch);//The most frequent letter is &quot;d&quot;,which has appeared 5 times.</span><br></pre></td></tr></table></figure>
+<h5 id="问题10：-instanceOf有什么作用？内部逻辑是如何实现的？"><a href="#问题10：-instanceOf有什么作用？内部逻辑是如何实现的？" class="headerlink" title="问题10： instanceOf有什么作用？内部逻辑是如何实现的？"></a>问题10： instanceOf有什么作用？内部逻辑是如何实现的？</h5><ul>
+<li><code>instanceof</code> 运算符用来检测 <code>constructor.prototype</code> 是否存在于参数 <code>object</code> 的原型链上<br>简单来说，就是判断一个对象是否为另一个对象的实例<br>一个mdn例子：</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&gt;// 定义构造函数</span><br><span class="line">&gt;function C()&#123;&#125; </span><br><span class="line">&gt;function D()&#123;&#125; </span><br><span class="line">&gt;</span><br><span class="line">&gt;var o = new C();</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;o instanceof C; // true，因为 Object.getPrototypeOf(o) === C.prototype</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;o instanceof D; // false，因为 D.prototype不在o的原型链上</span><br><span class="line">&gt;</span><br><span class="line">&gt;o instanceof Object; // true,因为Object.prototype.isPrototypeOf(o)返回true</span><br><span class="line">&gt;C.prototype instanceof Object // true,同上</span><br><span class="line">&gt;</span><br><span class="line">&gt;C.prototype = &#123;&#125;;</span><br><span class="line">&gt;var o2 = new C();</span><br><span class="line">&gt;</span><br><span class="line">&gt;o2 instanceof C; // true</span><br><span class="line">&gt;</span><br><span class="line">&gt;o instanceof C; // false,C.prototype指向了一个空对象,这个空对象不在o的原型链上.</span><br><span class="line">&gt;</span><br><span class="line">&gt;D.prototype = new C(); // 继承</span><br><span class="line">&gt;var o3 = new D();</span><br><span class="line">&gt;o3 instanceof D; // true</span><br><span class="line">&gt;o3 instanceof C; // true</span><br><span class="line"></span><br><span class="line"> ## 继承相关问题</span><br><span class="line">[如何理解继承](http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html)</span><br><span class="line"></span><br><span class="line"> ##### 问题11：继承有什么作用?</span><br><span class="line">继承是指一个对象直接使用另一对象的属性和方法，划分了类的层次性，父类代表的是更一般、更泛化的类，而子类则是更为具体、更为细化；继承是实现代码重用、扩展软件功能的重要手段，子类中与父类完全相同的属性和方法不必重写，只需写出新增或改写的内容，这就是说子类可以复用父类的内容，不必一切从零开始。</span><br><span class="line"></span><br><span class="line"> ##### 问题12： 下面两种写法有什么区别?</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>//方法1<br>function People(name, sex){<br>    this.name = name;<br>    this.sex = sex;<br>    this.printName = function(){<br>        console.log(this.name);<br>    }<br>}<br>var p1 = new People(‘饥人谷’, 2)</p>
+<p>//方法2<br>function Person(name, sex){<br>    this.name = name;<br>    this.sex = sex;<br>}</p>
+<p>Person.prototype.printName = function(){<br>    console.log(this.name);<br>}<br>var p1 = new Person(‘若愚’, 27);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">同样都是为People添加printName方法，但方法一是直接添加在People函数中，而方法二是添加在对应函数的prototype对象上。调用方法一时，每个实例化对象中都有他们自己的方法（和方法一相同的作用），而调用方法二时，不同的People对象都指向同一个方法，相比方法一达到了节省空间的效果。</span><br><span class="line"></span><br><span class="line"> ##### 问题13： Object.create 有什么作用？兼容性如何？</span><br><span class="line">- 作用：</span><br></pre></td></tr></table></figure></p>
+<p>function Male(name, sex, age){<br>    Person.call(this, name, sex);<br>    this.age = age;<br>}</p>
+<p>Male.prototype.printAge = function(){<br>    console.log(this.age);<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">在类似上述情况中，由于引用关系，导致后续修改子类的`prototype`也修改了父类的`prototype`，因为修改的是一个值。</span><br><span class="line">但是如果通过`Object.createclone`了一个新的`prototype`而不是直接把`Person.prtotype`直接赋值，把子类的`prototype`改为父类的`prototype`的备份，就可以避免以上情况。</span><br><span class="line">- 兼容性：</span><br><span class="line"></span><br><span class="line">![](http://upload-images.jianshu.io/upload_images/6782687-ca9780c2f373f0f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">![](http://upload-images.jianshu.io/upload_images/6782687-48d9165300255814.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line"> ##### 问题14： hasOwnProperty有什么作用？ 如何使用？</span><br><span class="line">作用：</span><br><span class="line">`hasOwnProperty()` 方法会返回一个布尔值，指示对象是否具有指定的属性作为自身（不继承）属性。</span><br><span class="line">使用：</span><br></pre></td></tr></table></figure></p>
+<p>m.hasOwnProperty(‘name’); // 输出true，判断name是否是实例化对象m自身的属性。<br>m.hasOwnProperty(‘printName’); // false<br>Male.prototype.hasOwnProperty(‘printAge’); // true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">##### 问题15：如下代码中call的作用是什么?</span><br></pre></td></tr></table></figure></p>
+<p>function Person(name, sex){<br>    this.name = name;<br>    this.sex = sex;<br>}<br>function Male(name, sex, age){<br>    Person.call(this, name, sex);    //这里的 call 有什么作用<br>    this.age = age;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">将Person的执行上下文改为Male的执行上下文，即将Male中的name和sex值用于Person</span><br><span class="line"></span><br><span class="line"> ##### 问题16： 补全代码，实现继承</span><br></pre></td></tr></table></figure></p>
+<p>function Person(name, sex){<br>    this.name = name;<br>    this.sex = sex;<br>}</p>
+<p>Person.prototype.getName = function(){<br>    console.log(this.name);<br>};    </p>
+<p>function Male(name, sex, age){<br>   People.call(this, name, sex);<br>   this.age = age;<br>}</p>
+<p>Male.prototype = Object.create(People.prototype);<br>Male.prototype.consructor = Male;<br>Male.prototype.getAge = function(){<br>    cosole.log(this.age);<br>};</p>
+<p>var ruoyu = new Male(‘若愚’, ‘男’, 27);<br>ruoyu.printName();<br><code>`</code></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/cin.github.io/2018/04/13/this-原型链-继承/">this_原型链_继承</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 cin 的个人博客">cin</a></p>
+  <p><span>发布时间:</span>2018年04月13日 - 12:04</p>
+  <p><span>最后更新:</span>2018年04月13日 - 12:04</p>
+  <p><span>原始链接:</span><a href="/cin.github.io/2018/04/13/this-原型链-继承/" title="this_原型链_继承">https://wangjit.github.io/cin.github.io/2018/04/13/this-原型链-继承/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://wangjit.github.io/cin.github.io/2018/04/13/this-原型链-继承/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      </div>
+    
+
+    
+
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/cin.github.io/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+            <a href="/cin.github.io/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+          
+            <a href="/cin.github.io/tags/this/" rel="tag"><i class="fa fa-tag"></i> this</a>
+          
+            <a href="/cin.github.io/tags/原型链/" rel="tag"><i class="fa fa-tag"></i> 原型链</a>
+          
+            <a href="/cin.github.io/tags/继承/" rel="tag"><i class="fa fa-tag"></i> 继承</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/cin.github.io/2018/04/13/对象-原型/" rel="next" title="对象_原型">
+                <i class="fa fa-chevron-left"></i> 对象_原型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/cin.github.io/2018/04/13/面向对象实战/" rel="prev" title="面向对象实战">
+                面向对象实战 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">cin</p>
+              <p class="site-description motion-element" itemprop="description">学习日记</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/cin.github.io/archives/">
+                
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/cin.github.io/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/cin.github.io/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wangjit" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="523021368@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#问题1：-apply、call-、bind有什么作用，什么区别"><span class="nav-number">1.</span> <span class="nav-text">问题1： apply、call 、bind有什么作用，什么区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题2：-以下代码输出什么"><span class="nav-number">2.</span> <span class="nav-text">问题2： 以下代码输出什么?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题3：-下面代码输出什么，为什么"><span class="nav-number">3.</span> <span class="nav-text">问题3： 下面代码输出什么，为什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题4：下面代码输出什么"><span class="nav-number">4.</span> <span class="nav-text">问题4：下面代码输出什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题5：下面代码输出什么，why"><span class="nav-number">5.</span> <span class="nav-text">问题5：下面代码输出什么，why</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题6：-以下代码有什么问题，如何修改"><span class="nav-number">6.</span> <span class="nav-text">问题6： 以下代码有什么问题，如何修改</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链相关问题"><span class="nav-number"></span> <span class="nav-text">原型链相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#问题7：有如下代码，解释Person、-prototype、proto、p、constructor之间的关联。"><span class="nav-number">1.</span> <span class="nav-text">问题7：有如下代码，解释Person、 prototype、proto、p、constructor之间的关联。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题8：-上例中，对对象-p可以这样调用-p-toString-。toString是哪里来的-画出原型图-并解释什么是原型链。"><span class="nav-number">2.</span> <span class="nav-text">问题8： 上例中，对对象 p可以这样调用 p.toString()。toString是哪里来的? 画出原型图?并解释什么是原型链。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题9：对String做扩展，实现如下方式获取字符串中频率最高的字符"><span class="nav-number">3.</span> <span class="nav-text">问题9：对String做扩展，实现如下方式获取字符串中频率最高的字符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题10：-instanceOf有什么作用？内部逻辑是如何实现的？"><span class="nav-number">4.</span> <span class="nav-text">问题10： instanceOf有什么作用？内部逻辑是如何实现的？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共39.6k字</span>
+</div>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">112k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读时长">1:52</span>
+  
+</div>
+
+
+
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/cin.github.io/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/cin.github.io/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/cin.github.io/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/cin.github.io/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/cin.github.io/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("tDgFOQliNqT57l7f0AwrX650-gzGzoHsz", "6djBmHU6p3fOmaLJkrURpLEd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: ,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
+

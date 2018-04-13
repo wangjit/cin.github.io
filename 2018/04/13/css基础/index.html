@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/cin.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/cin.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italicLobster Two:300,300italic,400,400italic,700,700italicPT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/cin.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/cin.github.io/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/cin.github.io/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/cin.github.io/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/cin.github.io/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/cin.github.io/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/cin.github.io/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="CSS的全称是什么? CSS全程是Cascading Style Sheets层叠样式表  CSS有几种引入方式? link 和@import 有什么区别? 内联样式这通常是个很糟糕的书写方式，它只能改变当前标签的样式，如果想要多个  拥有相同的样式，你不得不重复地为每个  添加相同的样式，如果想要修改一种样式，又不得不修改所有的 style 中的代码。很显然，内联方式引入 CSS 代码会导致 H">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css基础">
+<meta property="og:url" content="https://wangjit.github.io/cin.github.io/2018/04/13/css基础/index.html">
+<meta property="og:site_name" content="cin">
+<meta property="og:description" content="CSS的全称是什么? CSS全程是Cascading Style Sheets层叠样式表  CSS有几种引入方式? link 和@import 有什么区别? 内联样式这通常是个很糟糕的书写方式，它只能改变当前标签的样式，如果想要多个  拥有相同的样式，你不得不重复地为每个  添加相同的样式，如果想要修改一种样式，又不得不修改所有的 style 中的代码。很显然，内联方式引入 CSS 代码会导致 H">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-2bab21552877c31f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-df2baf382943666f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-e441a0e11c235ce2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-e30791cdfb0bd827.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-77528baca62e2e4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-32c9da113d481228.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-2540f95a8d7c4158.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-bff655974d55d9cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-176f262dc85fbeb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-ba05848b58563ba8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6782687-6ce76affd332a880.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-13T03:42:11.677Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css基础">
+<meta name="twitter:description" content="CSS的全称是什么? CSS全程是Cascading Style Sheets层叠样式表  CSS有几种引入方式? link 和@import 有什么区别? 内联样式这通常是个很糟糕的书写方式，它只能改变当前标签的样式，如果想要多个  拥有相同的样式，你不得不重复地为每个  添加相同的样式，如果想要修改一种样式，又不得不修改所有的 style 中的代码。很显然，内联方式引入 CSS 代码会导致 H">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/6782687-2bab21552877c31f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+
+
+
+  <link rel="canonical" href="https://wangjit.github.io/cin.github.io/2018/04/13/css基础/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>css基础 | cin</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/wangjit" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/cin.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Welcome to wjt's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home menu-item-active">
+    <a href="/cin.github.io/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/cin.github.io/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />归档<span class="badge">41</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/cin.github.io/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">18</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/cin.github.io/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">62</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-commonweal">
+    <a href="/cin.github.io/404/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-sitemap">
+    <a href="/cin.github.io/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/cin.github.io/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-angellist"></i> <br />关于</a>
+</li>
+
+      
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/css基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/cin.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T11:38:56+08:00">2018-04-13</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/cin.github.io/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/cin.github.io/categories/前端/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/cin.github.io/2018/04/13/css基础/" class="leancloud_visitors" data-flag-title="css基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">4k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">0:04</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="CSS的全称是什么"><a href="#CSS的全称是什么" class="headerlink" title="CSS的全称是什么?"></a>CSS的全称是什么?</h3><ul>
+<li>CSS全程是Cascading Style Sheets层叠样式表</li>
+</ul>
+<h3 id="CSS有几种引入方式-link-和-import-有什么区别"><a href="#CSS有几种引入方式-link-和-import-有什么区别" class="headerlink" title="CSS有几种引入方式? link 和@import 有什么区别?"></a>CSS有几种引入方式? link 和@import 有什么区别?</h3><ul>
+<li>内联样式<br>这通常是个很糟糕的书写方式，它只能改变当前标签的样式，如果想要多个 <div> 拥有相同的样式，你不得不重复地为每个 <div> 添加相同的样式，如果想要修改一种样式，又不得不修改所有的 style 中的代码。很显然，内联方式引入 CSS 代码会导致 HTML 代码变得冗长，且使得网页难以维护<br><code>&lt;h1 style = &quot;color: red; font-size: 20px;&quot;&gt;&lt;/h1&gt;</code></div></div></li>
+<li><p>内部样式。放到head里<br>嵌入方式的 CSS 只对当前的网页有效。因为 CSS 代码是在 HTML 文件中，所以会使得代码比较集中，当我们写模板网页时这通常比较有利。因为查看模板代码的人可以一目了然地查看 HTML 结构和 CSS 样式。因为嵌入的 CSS 只对当前页面有效，所以当多个页面需要引入相同的 CSS 代码时，这样写会导致代码冗余，也不利于维护</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type = &quot;text/css&quot;&gt;</span><br><span class="line">  h1 &#123;</span><br><span class="line">      color: red;</span><br><span class="line">      font-size: 20px; </span><br><span class="line">   &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;h1&gt;饥人谷&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>外部样式。使用链接引用的方式加载样式<br>这是最常见的也是最推荐的引入 CSS 的方式。使用这种方式，所有的 CSS 代码只存在于单独的 CSS 文件中，所以具有良好的可维护性。并且所有的 CSS 代码只存在于 CSS 文件中，CSS 文件会在第一次加载时引入，以后切换页面时只需加载 HTML 文件即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">/*link标签很早以前不光可以加载样式表，可以加载</span><br><span class="line">各种各样的链接，rel是relation，type属性可以不</span><br><span class="line">写，href样式的文件地址。link一般写在&lt;head&gt;</span><br><span class="line">&lt;/head&gt;里，否则可能会引起无样式内容闪烁、白屏</span><br><span class="line">等浏览器渲染时会出现的问题*/</span><br><span class="line">    &lt;link rel = &quot;stylesheet&quot; type = &quot;text/css&quot; href = &quot;index.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导入样式<br>是使用 CSS 规则引入外部 CSS 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    @import url(&quot;hello.css&quot;);/*import的两种写法*/</span><br><span class="line">    @import &quot;world.css&quot;;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>link和@import都是外部引用CSS的方式，但是存在一定的区别：</p>
+<p>link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。</p>
+<p>link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。</p>
+<p>link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。</p>
+<p>ink支持使用Javascript控制DOM去改变样式；而@import不支持</p>
+<h3 id="以下这几种文件路径分别用在什么地方，代表什么意思"><a href="#以下这几种文件路径分别用在什么地方，代表什么意思" class="headerlink" title="以下这几种文件路径分别用在什么地方，代表什么意思?"></a>以下这几种文件路径分别用在什么地方，代表什么意思?</h3><ul>
+<li>相对路径：自己相对与目标的位置，当两个文件的相对关系没有变，就可以使用相对路径指明它的地址进而去引用彼此<br><code>css/a.css</code>      css目录下的a.css文件<br><code>./css/a.css</code>css目录下的a.css文件<br><code>b.css</code>           与目标文件同处于一级的b.css文件<br><code>../imgs/a.png</code>   ../表示上一级，相对于目标的上一级目录下的imgs目录下的a.png</li>
+<li>绝对路径：完整的描述文件位置的路径就是绝对路径，当文件之间的相对关系改变了，不处于同一个根目录下，就需要明确的描述文件的位置<br><code>/Users/hunger/project/css/a.css</code>   /表示根目录，跟目录下的users目录下的hunger目录下的project目录下的css目录下的a.css文件</li>
+<li>网站路径：也是绝对路径，当两个具有引用与被引用关系的文件不在同一个服务器上时，需要完整的描述文件位置<br><code>/static/css/a.css</code>与目标文件同处于一个服务器地址下的相对路径，例如服务器地址为<code>http://cdn.jirengu.com</code>，则它代表的是<code>http://cdn.jirengu.com/static/css/a.css</code><br><code>http://cdn.jirengu.com/kejian1/8-1.png</code>网络上的地址</li>
+</ul>
+<h3 id="如果我想在js-jirengu-com上展示一个图片，需要怎么操作"><a href="#如果我想在js-jirengu-com上展示一个图片，需要怎么操作" class="headerlink" title="如果我想在js.jirengu.com上展示一个图片，需要怎么操作?"></a>如果我想在js.jirengu.com上展示一个图片，需要怎么操作?</h3><ul>
+<li>将要展示的图片上传到服务器上，若js.jirengu.com与图片处于同一服务器，可以以相对路径或绝对路径去描述；若不在同一个服务器上，只能用绝对路径这样完整的描述文件的方式来展示，具体为：<br><code>&lt;img src = &quot;imgs/a.png&quot;&gt;</code><br>或<br><code>&lt;img src = &quot;http://a.com/images/a.jpg&quot;&gt;</code></li>
+</ul>
+<h3 id="列出5条以上html和-css-的书写规范"><a href="#列出5条以上html和-css-的书写规范" class="headerlink" title="列出5条以上html和 css 的书写规范"></a>列出5条以上html和 css 的书写规范</h3><p>html中：</p>
+<ul>
+<li>是闭合标签的标签一定要完整的把标签的开始和结束都写上，/表示闭合，写在闭合标签的标签名称的前面，例如：<code>&lt;h1&gt;&lt;/h1&gt;</code></li>
+<li>当标签之间存在嵌套关系时，最好是使用缩进的方式进行编写，以便阅读、理解和修改</li>
+<li>标签以尖括号开始，也以尖括号结束</li>
+<li>标签内属性与属性值的连接使用“=”等号来连接<br>CSS中：</li>
+<li>部分css可以写在html的标签中，其紧跟在标签名称后面，以空格分开。</li>
+<li>部分css无法写在标签中，这时可以写在head标签内部，用<style></style>包裹起来。在style标签内部，对具有同一个名称或属于同一个类或是同一个元素的标签进行统一设置，设置的内容用花括号包裹起来，例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    span&#123;</span><br><span class="line">        color: yellow;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="截图介绍-chrome-开发者工具的功能区"><a href="#截图介绍-chrome-开发者工具的功能区" class="headerlink" title="截图介绍 chrome 开发者工具的功能区"></a>截图介绍 chrome 开发者工具的功能区</h3><p><img src="http://upload-images.jianshu.io/upload_images/6782687-2bab21552877c31f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>面板上包含了Elements面板、Console面板、Sources面板、Network面板、 Timeline面板、Profiles面板、Application面板、Security面板、Audits面板这些功能面板:</p>
+<ul>
+<li>Elements:查找网页源代码HTML中的任一元素,手动修改任一元素的属性和样式且能实时在浏览器里面得到反馈。</li>
+<li>Console:记录开发者开发过程中的日志信息，且可以作为与JS进行交互的命令行Shell。</li>
+<li>Sources:断点调试JS。</li>
+<li>Network:从发起网页页面请求Request后分析HTTP请求后得到的各个请求资源信息（包括状态、资源类型、大小、所用时间等），可以根据这个进行网络性能优化。</li>
+<li>Timeline:记录并分析在网站的生命周期内所发生的各类事件，以此可以提高网页的运行时间的性能。</li>
+<li>Profiles:如果你需要Timeline所能提供的更多信息时，可以尝试一下Profiles,比如记录JS CPU执行时间细节、显示JS对象和相关的DOM节点的内存消耗、记录内存的分配细节。</li>
+<li>Application:记录网站加载的所有资源信息，包括存储数据（Local Storage、Session Storage、<br>IndexedDB、Web SQL、Cookies）、缓存数据、字体、图片、脚本、样式表等。</li>
+<li>Security:判断当前网页是否安全。</li>
+<li>Audits:对当前网页进行网络利用情况、网页性能方面的诊断，并给出一些优化建议。比如列出所有没有用到的CSS文件等。<br>元素选择器<br><a href="https://cloud.githubusercontent.com/assets/7273752/10064533/e81f37f8-62ab-11e5-9f55-811e80b49a43.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/6782687-df2baf382943666f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></a> 标签栏第一个类似放大镜的标志。按下放大镜并且在页面上滑动鼠标，会发现有区域被点亮（这里会点亮接触的最内层元素） 同时会看到这个元素的一些基本信息（类，宽高）另外元素的box模型的真实内容，padding，margin也会被不同颜色标示。单击后则工具会选中DOM中的该元素。效果如下图：<a href="https://cloud.githubusercontent.com/assets/7273752/10064560/284f72c0-62ac-11e5-9098-071a7bd96e0a.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/6782687-e441a0e11c235ce2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></a><br>移动设备模拟<br><a href="https://cloud.githubusercontent.com/assets/7273752/10064709/f6b89848-62ad-11e5-8a43-6bbc97e6c82e.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/6782687-e30791cdfb0bd827.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="p3"></a> 在桌面浏览器模拟移动端的操作，虽然可能样式上会稍有偏差，但可以模拟多种屏幕分辨率以及支持一些触屏的事件，非常实用<a href="https://cloud.githubusercontent.com/assets/7273752/10064754/99973326-62ae-11e5-809f-39d78b3e94b1.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/6782687-77528baca62e2e4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="p4"></a><br>Elements标签页<br>和对网页右键查看源代码有所不同，是经过js代码执行以后真实的html代码，因此直接改动就会在页面生效。同时进入该面板以后还会有额外的一块功能区出现，这里可以查看和修改样式，也可以查看元素绑定的事件等。<a href="https://cloud.githubusercontent.com/assets/7273752/10064792/127e9c7a-62af-11e5-8fdf-c612b1462ca6.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/6782687-32c9da113d481228.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></a><br>网络<br>查看页面的网络请求（打开开发者工具并且选择开启录制以后以后才会记录）这里可以开启过滤，通过关键字或者请求的类型来更快的定位想查找的请求，概况里可以查看请求的方式，状态，大小，来源等属性。<a href="https://cloud.githubusercontent.com/assets/7273752/10064983/aa4d130e-62b1-11e5-8b69-05fd79047b94.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/6782687-2540f95a8d7c4158.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></a>单击一个请求就能查看请求具体的信息，如请求的头部，回复等。 这里查看response有个小技巧，如果返回的是json/jsonp数据，可以用Preview标签页方便的查看生成的对象，告别Unicode转码和显示的困扰查看response<a href="https://cloud.githubusercontent.com/assets/7273752/10065006/ed757cac-62b1-11e5-8f04-4195db6bf5da.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/6782687-bff655974d55d9cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></a>选择preview查看返回内容<a href="https://cloud.githubusercontent.com/assets/7273752/10065019/1a79b07e-62b2-11e5-82b0-d2b3021c4cc2.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/6782687-176f262dc85fbeb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></a><br>资源<br>可以查看页面的图片，cookie，local storage等信息（但是没法修改cookie只能清除，如果需要修改则需要通过js修改，目前只成功在firebug提供图形界面修改过cookie）<a href="https://cloud.githubusercontent.com/assets/7273752/10065053/b02e249c-62b2-11e5-816e-6640d6e69629.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/6782687-ba05848b58563ba8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></a><br>控制台<br>在这里可以自由的撰写js代码，可以使用浏览器提供的内置对象，同时可以自己新定义对象和函数。在控制台输入代码和许多IDE一样提供了自动补全功能。<a href="https://cloud.githubusercontent.com/assets/7273752/10065107/7d544096-62b3-11e5-8fbd-7790b1eafe4e.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/6782687-6ce76affd332a880.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/cin.github.io/2018/04/13/css基础/">css基础</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 cin 的个人博客">cin</a></p>
+  <p><span>发布时间:</span>2018年04月13日 - 11:04</p>
+  <p><span>最后更新:</span>2018年04月13日 - 11:04</p>
+  <p><span>原始链接:</span><a href="/cin.github.io/2018/04/13/css基础/" title="css基础">https://wangjit.github.io/cin.github.io/2018/04/13/css基础/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://wangjit.github.io/cin.github.io/2018/04/13/css基础/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      </div>
+    
+
+    
+
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/cin.github.io/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/cin.github.io/2018/04/13/css选择器/" rel="next" title="css选择器">
+                <i class="fa fa-chevron-left"></i> css选择器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/cin.github.io/2018/04/13/简单介绍HTML表单的用法/" rel="prev" title="简单介绍HTML表单的用法">
+                简单介绍HTML表单的用法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">cin</p>
+              <p class="site-description motion-element" itemprop="description">学习日记</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/cin.github.io/archives/">
+                
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/cin.github.io/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/cin.github.io/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wangjit" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="523021368@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS的全称是什么"><span class="nav-number">1.</span> <span class="nav-text">CSS的全称是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS有几种引入方式-link-和-import-有什么区别"><span class="nav-number">2.</span> <span class="nav-text">CSS有几种引入方式? link 和@import 有什么区别?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以下这几种文件路径分别用在什么地方，代表什么意思"><span class="nav-number">3.</span> <span class="nav-text">以下这几种文件路径分别用在什么地方，代表什么意思?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果我想在js-jirengu-com上展示一个图片，需要怎么操作"><span class="nav-number">4.</span> <span class="nav-text">如果我想在js.jirengu.com上展示一个图片，需要怎么操作?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列出5条以上html和-css-的书写规范"><span class="nav-number">5.</span> <span class="nav-text">列出5条以上html和 css 的书写规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#截图介绍-chrome-开发者工具的功能区"><span class="nav-number">6.</span> <span class="nav-text">截图介绍 chrome 开发者工具的功能区</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共39.6k字</span>
+</div>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">112k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读时长">1:52</span>
+  
+</div>
+
+
+
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/cin.github.io/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/cin.github.io/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/cin.github.io/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/cin.github.io/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/cin.github.io/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("tDgFOQliNqT57l7f0AwrX650-gzGzoHsz", "6djBmHU6p3fOmaLJkrURpLEd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: ,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
+

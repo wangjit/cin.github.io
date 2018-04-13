@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/cin.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/cin.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italicLobster Two:300,300italic,400,400italic,700,700italicPT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/cin.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/cin.github.io/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/cin.github.io/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/cin.github.io/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/cin.github.io/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/cin.github.io/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/cin.github.io/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="题目1: 下面的代码输出多少？修改代码让 fnArr[i]() 输出 i。使用 两种以上的方法var fnArr = []; for (var i = 0; i &amp;lt; 10; i ++) {     fnArr[i] =  function(){         return i;     }; } console.log( fnArr[3]() );  //&amp;apos;10&amp;apos; 12">
+<meta name="keywords" content="前端,闭包,定时器,bom">
+<meta property="og:type" content="article">
+<meta property="og:title" content="闭包定时器bom">
+<meta property="og:url" content="https://wangjit.github.io/cin.github.io/2018/04/13/闭包定时器bom/index.html">
+<meta property="og:site_name" content="cin">
+<meta property="og:description" content="题目1: 下面的代码输出多少？修改代码让 fnArr[i]() 输出 i。使用 两种以上的方法var fnArr = []; for (var i = 0; i &amp;lt; 10; i ++) {     fnArr[i] =  function(){         return i;     }; } console.log( fnArr[3]() );  //&amp;apos;10&amp;apos; 12">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-13T04:27:21.276Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="闭包定时器bom">
+<meta name="twitter:description" content="题目1: 下面的代码输出多少？修改代码让 fnArr[i]() 输出 i。使用 两种以上的方法var fnArr = []; for (var i = 0; i &amp;lt; 10; i ++) {     fnArr[i] =  function(){         return i;     }; } console.log( fnArr[3]() );  //&amp;apos;10&amp;apos; 12">
+
+
+
+
+
+
+  <link rel="canonical" href="https://wangjit.github.io/cin.github.io/2018/04/13/闭包定时器bom/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>闭包定时器bom | cin</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/wangjit" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/cin.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Welcome to wjt's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home menu-item-active">
+    <a href="/cin.github.io/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/cin.github.io/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />归档<span class="badge">41</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/cin.github.io/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">18</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/cin.github.io/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">62</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-commonweal">
+    <a href="/cin.github.io/404/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-sitemap">
+    <a href="/cin.github.io/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/cin.github.io/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-angellist"></i> <br />关于</a>
+</li>
+
+      
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/闭包定时器bom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/cin.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">闭包定时器bom
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T12:25:29+08:00">2018-04-13</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/cin.github.io/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/cin.github.io/categories/前端/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/cin.github.io/2018/04/13/闭包定时器bom/" class="leancloud_visitors" data-flag-title="闭包定时器bom">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">7.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">0:07</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="题目1-下面的代码输出多少？修改代码让-fnArr-i-输出-i。使用-两种以上的方法"><a href="#题目1-下面的代码输出多少？修改代码让-fnArr-i-输出-i。使用-两种以上的方法" class="headerlink" title="题目1: 下面的代码输出多少？修改代码让 fnArr[i]() 输出 i。使用 两种以上的方法"></a>题目1: 下面的代码输出多少？修改代码让 <code>fnArr[i]()</code> 输出 i。使用 两种以上的方法</h4><pre><code>var fnArr = [];
+for (var i = 0; i &lt; 10; i ++) {
+    fnArr[i] =  function(){
+        return i;
+    };
+}
+console.log( fnArr[3]() );  //&apos;10&apos;
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//方法一</span><br><span class="line">var fnArr = [];</span><br><span class="line">for (var i = 0; i &lt; 10; i ++) &#123;</span><br><span class="line">    (function(i)&#123;</span><br><span class="line">        fnArr[i] =  function()&#123;</span><br><span class="line">        return i;</span><br><span class="line">    &#125;;</span><br><span class="line">    &#125;)(i)</span><br><span class="line">    &#125;</span><br><span class="line">console.log( fnArr[3]() );</span><br><span class="line">//方法二</span><br><span class="line">var fnArr = [];</span><br><span class="line">for (var i = 0; i &lt; 10; i ++) &#123;</span><br><span class="line">    fnArr[i] =  (function(i)&#123;</span><br><span class="line">        return function () &#123;</span><br><span class="line">            return i;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line">console.log( fnArr[3]() );</span><br><span class="line">//方法三</span><br><span class="line">var fnArr = [];</span><br><span class="line">for (let i = 0; i &lt; 10; i ++) &#123;</span><br><span class="line">    fnArr[i] =  function()&#123;</span><br><span class="line">        return i;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">console.log( fnArr[3]() );</span><br></pre></td></tr></table></figure>
+<h4 id="题目2：-封装一个汽车对象，可以通过如下方式获取汽车状态"><a href="#题目2：-封装一个汽车对象，可以通过如下方式获取汽车状态" class="headerlink" title="题目2： 封装一个汽车对象，可以通过如下方式获取汽车状态"></a>题目2： 封装一个汽车对象，可以通过如下方式获取汽车状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">var Car = (function()&#123;</span><br><span class="line">    var speed = 0;</span><br><span class="line">    function setSpeed(s)&#123;</span><br><span class="line">        return speed = s;</span><br><span class="line">    &#125;</span><br><span class="line">    function getSpeed() &#123;</span><br><span class="line">        return speed;</span><br><span class="line">    &#125;</span><br><span class="line">    function accelerate() &#123;</span><br><span class="line">        return speed += 10;</span><br><span class="line">    &#125;</span><br><span class="line">    function decelerate() &#123;</span><br><span class="line">        return speed &gt; 0 ? speed -= 10 : speed;</span><br><span class="line">    &#125;</span><br><span class="line">    function getStatus() &#123;</span><br><span class="line">        return speed &gt; 0 ? &apos;running&apos;:&apos;stop&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    return &#123;</span><br><span class="line">        &quot;setSpeed&quot;: setSpeed,</span><br><span class="line">        &quot;getSpeed&quot;: getSpeed,</span><br><span class="line">        &quot;accelerate&quot;: accelerate,</span><br><span class="line">        &quot;decelerate&quot;: decelerate,</span><br><span class="line">        &quot;getStatus&quot;: getStatus</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">Car.setSpeed(30);</span><br><span class="line">Car.getSpeed(); //30</span><br><span class="line">Car.accelerate();</span><br><span class="line">Car.getSpeed(); //40;</span><br><span class="line">Car.decelerate();</span><br><span class="line">Car.decelerate();</span><br><span class="line">Car.getSpeed(); //20</span><br><span class="line">Car.getStatus(); // &apos;running&apos;;</span><br><span class="line">Car.decelerate();</span><br><span class="line">Car.decelerate();</span><br><span class="line">Car.getStatus();  //&apos;stop&apos;;</span><br><span class="line">//Car.speed;  //error</span><br></pre></td></tr></table></figure>
+<h4 id="题目3：下面这段代码输出结果是-为什么"><a href="#题目3：下面这段代码输出结果是-为什么" class="headerlink" title="题目3：下面这段代码输出结果是? 为什么?"></a>题目3：下面这段代码输出结果是? 为什么?</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">    a = 2;</span><br><span class="line">    console.log(a);//‘2’,setTimeout指定的代码，必须等到本次执行的所有代码都执行完，才会执行</span><br><span class="line">&#125;, 0);</span><br><span class="line">var a ;</span><br><span class="line">console.log(a);//&apos;1&apos;</span><br><span class="line">a = 3;</span><br><span class="line">console.log(a);//&apos;3&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="题目4：下面这段代码输出结果是-为什么"><a href="#题目4：下面这段代码输出结果是-为什么" class="headerlink" title="题目4：下面这段代码输出结果是? 为什么?"></a>题目4：下面这段代码输出结果是? 为什么?</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var flag = true;</span><br><span class="line">setTimeout(function()&#123;//等到本次执行的所有代码都执行完，才会执行</span><br><span class="line">    flag = false;</span><br><span class="line">&#125;,0)</span><br><span class="line">while(flag)&#123;&#125;//首先执行，此时setTimeout未执行，flag恒为true，因此这一句会无限循环</span><br><span class="line">console.log(flag);//因为上一句代码无限循环，所以这一句不会执行</span><br></pre></td></tr></table></figure>
+<h4 id="题目5：-下面这段代码输出？如何输出-delayer-0-delayer-1-（使用闭包来实现）"><a href="#题目5：-下面这段代码输出？如何输出-delayer-0-delayer-1-（使用闭包来实现）" class="headerlink" title="题目5： 下面这段代码输出？如何输出 delayer: 0, delayer:1...（使用闭包来实现）"></a>题目5： 下面这段代码输出？如何输出 <code>delayer: 0, delayer:1...</code>（使用闭包来实现）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;5;i++)&#123;</span><br><span class="line">	setTimeout(function()&#123;</span><br><span class="line">         console.log(&apos;delayer:&apos; + i );</span><br><span class="line">	&#125;, 0);</span><br><span class="line">	console.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">delayer:5</span><br><span class="line">delayer:5</span><br><span class="line">delayer:5</span><br><span class="line">delayer:5</span><br><span class="line">delayer:5</span><br></pre></td></tr></table></figure></p>
+<p>使用闭包实现输出<code>delayer: 0, delayer:1...</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;5;i++)&#123;</span><br><span class="line">    setTimeout((function(i)&#123;</span><br><span class="line">        return function () &#123;</span><br><span class="line">            console.log(&apos;delayer:&apos; + i );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)(i), 0);</span><br><span class="line">    console.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;5;i++)&#123;</span><br><span class="line">    (function (i) &#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            console.log(&apos;delayer:&apos; + i );</span><br><span class="line">        &#125;, 0);</span><br><span class="line">    &#125;)(i);</span><br><span class="line"></span><br><span class="line">    console.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="题目6：-如何获取元素的真实宽高"><a href="#题目6：-如何获取元素的真实宽高" class="headerlink" title="题目6： 如何获取元素的真实宽高"></a>题目6： 如何获取元素的真实宽高</h4><blockquote>
+<ol>
+<li>clientWidth和clientHeight<br> 这组属性可以获取元素可视区的大小，可以得到元素内容及内边距所占据的空间大小。返回了元素大小，但没有单位，默认单位是px，如果你强行设置了单位，比如100em之类，它还是会返回px的大小。(CSS获取的话，是照着你设置的样式获取)。对于元素的实际大小，clientWidth和clientHeight理解方式如下：<br> a. 增加边框，无变化；<br> b. 增加外边距，无变化；<br> c. 增加滚动条，最终值等于原本大小减去滚动条的大小；<br> d. 增加内边距，最终值等于原本大小加上内边距的大小；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</span><br><span class="line">&gt;#test&#123;</span><br><span class="line">&gt;    background-color: green;</span><br><span class="line">&gt;    width: 200px;</span><br><span class="line">&gt;    height: 200px;</span><br><span class="line">&gt;    border: solid 5px red;  /* 对应a理解，结果：200,200 */</span><br><span class="line">&gt;    margin: 10px;  /* 对应b理解，结果：200,200*/</span><br><span class="line">&gt;    padding: 20px;  /* 对应c理解，结果：240,240*/</span><br><span class="line">&gt;    overflow: scroll;  /* 对应d理解，结果：223,223，&gt;223=200（css大小）+40（两边内边距）-17（滚动条宽度）*/</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;window.onload = function()&#123;</span><br><span class="line">&gt;    var obj = document.getElementById(&quot;test&quot;);</span><br><span class="line">&gt;    alert(obj.clientWidth + &quot;,&quot; + obj.clientHeight);</span><br><span class="line">&gt;&#125;;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>如果没有设置任何CSS的宽和高度，那么非IE浏览器会算上滚动条和内边距的计算后的大小，而IE浏览器则返回0（IE8已修复）</p>
+<ol start="2">
+<li>scrollWidth和scrollHeight<br> 这组属性可以获取滚动内容(可见内容)的元素大小。返回了元素大小，默认单位是px。如果没有设置任何CSS的宽和高度，它会得到计算后的宽度和高度。对于元素的实际大小，scrollWidth和scrollHeight理解如下:<br>①.增加边框，不同浏览器有不同解释（下面在IE8中运行正常，IE6运行不正常）：<br>a. Firefox和Opera浏览器会增加边框的大小，220x220<br>b. IE、Chrome和Safari浏览器会忽略边框大小，200x200<br>c. IE浏览器只显示它本来内容的高度，200x18（IE8已经修改该问题）<br>②.增加内边距，最终值会等于原本大小加上内边距大小，220x220，IE为220x38。<br>③. 增加滚动条，最终值会等于原本大小减去滚动条大小，184x184，IE为184x18<br>④. 增加外边据，无变化。<br>⑤. 增加内容溢出，Firefox、Chrome和IE获取实际内容高度，Opera比前三个浏览器获取的高度偏小，Safari比前三个浏览器获取的高度偏大。</li>
+<li>offsetWidth和offsetHeight<br> 这组属性可以返回元素实际大小，包含边框、内边距和滚动条。返回了元素大小，默认单位是px。如果没有设置任何CSS的宽和高度，他会得到计算后的宽度和高度。对于元素的实际大小，offsetWidth和offsetHeight理解如下：<br> ①.增加边框，最终值会等于原本大小加上边框大小，为220；<br> ②.增加内边距，最终值会等于原本大小加上内边距大小，为220；<br> ③.增加外边据，无变化；<br> ④.增加滚动条，无变化，不会减小；<br> 对于元素大小的获取，一般是块级(block)元素并且以设置了CSS大小的元素较为方便。如果是内联元素(inline)或者没有设置大小的元素就尤为麻烦<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&lt;div id=&quot;test&quot;&gt;test div element&lt;/div&gt;</span><br><span class="line">&gt;#test&#123;</span><br><span class="line">&gt;    background-color: green;</span><br><span class="line">&gt;    width: 200px;</span><br><span class="line">&gt;    height: 200px;</span><br><span class="line">&gt;    border: solid 10px red; /*结果：220,220*/</span><br><span class="line">&gt;    margin: 10px; /*结果：220,220（无变化）*/</span><br><span class="line">&gt;    padding: 10px; /*结果：240,240*/</span><br><span class="line">&gt;    overflow：scroll; /*结果：240,240（无变化）*/</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;window.onload = function()&#123;</span><br><span class="line">&gt;    var obj = document.getElementById(&quot;test&quot;);</span><br><span class="line">&gt;    alert(obj.offsetWidth + &quot;,&quot; + obj.offsetHeight);</span><br><span class="line">&gt;&#125;;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><a href="http://www.jb51.net/article/61460.htm" target="_blank" rel="noopener">http://www.jb51.net/article/61460.htm</a></p>
+</blockquote>
+<h4 id="题目7：-URL-如何编码解码？为什么要编码？"><a href="#题目7：-URL-如何编码解码？为什么要编码？" class="headerlink" title="题目7： URL 如何编码解码？为什么要编码？"></a>题目7： URL 如何编码解码？为什么要编码？</h4><ul>
+<li>url为什么要编码？<blockquote>
+<p>URL 是可移植的（portable）。它要统一地命名因特网上所有的资源，这也就意味着要通过各种不同的协议来传送这些资源。这些协议在传输数据时都会使用不同的机制，所以，设计 URL，使其可以通过任意因特网协议安全地传输是很重要的。<br>安全传输意味着 URL 的传输不能丢失信息。有些协议，比如传输电子邮件的简单邮件传输协议（Simple Mail Transfer Protocol，SMTP），所使用的传输方法就会剥去一些特定的字符。为了避开这些问题，URL 只能使用一些相对较小的、通用的安全字母表中的字符。<br>除了希望 URL 可以被所有因特网协议进行传送之外，设计者们还希望URL也可供人类阅读。因此，即使不可见、不可打印的字符能够穿过邮件程序，从而成为可移植的，也不能在 URL 中使用。<br>URL 还得是完整的，这就使问题变得更加复杂了。URL 的设计者们认识到有时人们可能会希望 URL 中包含除通用的安全字母表之外的二进制数据或字符。因此，需要有一种转义机制，能够将不安全的字符编码为安全字符，再进行传输。</p>
+</blockquote>
+</li>
+<li><p>URL如何编码解码？<br>JavaScript提供四个URL的编码/解码方法。<br><code>decodeURI()</code><br><code>decodeURIComponent()</code><br><code>encodeURI()</code><br><code>encodeURIComponent()</code><br><strong>区别</strong><br>encodeURI方法<strong>不会</strong>对下列字符编码<br><code>ASCII字母</code><br><code>数字</code><br><code>~!@#$&amp;*()=:/,;?+&#39;</code><br>encodeURIComponent方法<strong>不会</strong>对下列字符编码<br><code>ASCII字母</code><br><code>数字</code><br><code>~!*()&#39;</code><br>所以encodeURIComponent比encodeURI编码的范围更大。<br>encodeURIComponent会把<code>http://</code>编码成<code>http%3A%2F%2F</code>，而encodeURI却不会。<br>如果需要编码整个URL，然后需要使用这个URL，那么用encodeURI。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">encodeURI(&quot;http://www.cnblogs.com/season-huang/some other thing&quot;); </span><br><span class="line">//&quot;http://www.cnblogs.com/season-huang/some%20other%20thing&quot;;</span><br></pre></td></tr></table></figure>
+<p>其中，空格被编码成了%20。但是如果用了encodeURIComponent，那么结果变为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;http%3A%2F%2Fwww.cnblogs.com%2Fseason-huang%2Fsome%20other%20thing&quot;</span><br></pre></td></tr></table></figure>
+<p>当需要编码URL中的参数的时候，那么encodeURIComponent是最好方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var param = &quot;http://www.cnblogs.com/season-huang/&quot;; </span><br><span class="line">//param为参数param = encodeURIComponent(param);</span><br><span class="line">var url = &quot;http://www.cnblogs.com?next=&quot; + param;</span><br><span class="line">console.log(url) </span><br><span class="line">//&quot;http://www.cnblogs.com?next=http%3A%2F%2Fwww.cnblogs.com%2Fseason-huang%2F&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="题目8：-补全如下函数，判断用户的浏览器类型"><a href="#题目8：-补全如下函数，判断用户的浏览器类型" class="headerlink" title="题目8： 补全如下函数，判断用户的浏览器类型"></a>题目8： 补全如下函数，判断用户的浏览器类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function isAndroid()&#123;</span><br><span class="line">    return /Android/.test(navigator.userAgent);</span><br><span class="line">&#125;</span><br><span class="line">function isIphone()&#123;</span><br><span class="line">    return /Iphone/.test(navigator.userAgent);</span><br><span class="line">&#125;</span><br><span class="line">function isIpad()&#123;</span><br><span class="line">    return /Ipad/.test(navigator.userAgent);</span><br><span class="line">&#125;</span><br><span class="line">function isIOS()&#123;</span><br><span class="line">    return /(Ipad)|(Iphone)/.test(navigator.userAgent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/cin.github.io/2018/04/13/闭包定时器bom/">闭包定时器bom</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 cin 的个人博客">cin</a></p>
+  <p><span>发布时间:</span>2018年04月13日 - 12:04</p>
+  <p><span>最后更新:</span>2018年04月13日 - 12:04</p>
+  <p><span>原始链接:</span><a href="/cin.github.io/2018/04/13/闭包定时器bom/" title="闭包定时器bom">https://wangjit.github.io/cin.github.io/2018/04/13/闭包定时器bom/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://wangjit.github.io/cin.github.io/2018/04/13/闭包定时器bom/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      </div>
+    
+
+    
+
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/cin.github.io/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+            <a href="/cin.github.io/tags/闭包/" rel="tag"><i class="fa fa-tag"></i> 闭包</a>
+          
+            <a href="/cin.github.io/tags/定时器/" rel="tag"><i class="fa fa-tag"></i> 定时器</a>
+          
+            <a href="/cin.github.io/tags/bom/" rel="tag"><i class="fa fa-tag"></i> bom</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/cin.github.io/2018/04/13/事件的应用/" rel="next" title="事件的应用">
+                <i class="fa fa-chevron-left"></i> 事件的应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/cin.github.io/2018/04/13/ajax实践/" rel="prev" title="ajax实践">
+                ajax实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">cin</p>
+              <p class="site-description motion-element" itemprop="description">学习日记</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/cin.github.io/archives/">
+                
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/cin.github.io/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/cin.github.io/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wangjit" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="523021368@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目1-下面的代码输出多少？修改代码让-fnArr-i-输出-i。使用-两种以上的方法"><span class="nav-number">1.</span> <span class="nav-text">题目1: 下面的代码输出多少？修改代码让 fnArr[i]() 输出 i。使用 两种以上的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目2：-封装一个汽车对象，可以通过如下方式获取汽车状态"><span class="nav-number">2.</span> <span class="nav-text">题目2： 封装一个汽车对象，可以通过如下方式获取汽车状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目3：下面这段代码输出结果是-为什么"><span class="nav-number">3.</span> <span class="nav-text">题目3：下面这段代码输出结果是? 为什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目4：下面这段代码输出结果是-为什么"><span class="nav-number">4.</span> <span class="nav-text">题目4：下面这段代码输出结果是? 为什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目5：-下面这段代码输出？如何输出-delayer-0-delayer-1-（使用闭包来实现）"><span class="nav-number">5.</span> <span class="nav-text">题目5： 下面这段代码输出？如何输出 delayer: 0, delayer:1...（使用闭包来实现）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目6：-如何获取元素的真实宽高"><span class="nav-number">6.</span> <span class="nav-text">题目6： 如何获取元素的真实宽高</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目7：-URL-如何编码解码？为什么要编码？"><span class="nav-number">7.</span> <span class="nav-text">题目7： URL 如何编码解码？为什么要编码？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目8：-补全如下函数，判断用户的浏览器类型"><span class="nav-number">8.</span> <span class="nav-text">题目8： 补全如下函数，判断用户的浏览器类型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共39.6k字</span>
+</div>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">112k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读时长">1:52</span>
+  
+</div>
+
+
+
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/cin.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/cin.github.io/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/cin.github.io/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/cin.github.io/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/cin.github.io/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/cin.github.io/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("tDgFOQliNqT57l7f0AwrX650-gzGzoHsz", "6djBmHU6p3fOmaLJkrURpLEd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: ,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
+
