@@ -4,6 +4,60 @@
 
     
   <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/AMD-CMD-RequireJS/</loc>
+    <lastmod>2018-04-16T13:43:51.235Z</lastmod>
+    <data>
+        <display>
+        <title>AMD_CMD_RequireJS</title>
+        <pubTime>2018-04-13T04:38:47.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>ADM</tag>
+         
+        <tag>CMD</tag>
+         
+        <tag>RequireJS</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-04-15T16:54:06.579Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式笔记</title>
+        <pubTime>2018-04-15T01:24:35.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>设计模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="设计模式" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/css%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2018-04-13T05:14:12.238Z</lastmod>
     <data>
@@ -446,35 +500,6 @@
         <tag>原型链</tag>
          
         <tag>继承</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/AMD-CMD-RequireJS/</loc>
-    <lastmod>2018-04-13T04:48:10.956Z</lastmod>
-    <data>
-        <display>
-        <title>AMD_CMD_RequireJS</title>
-        <pubTime>2018-04-13T04:38:47.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>ADM</tag>
-         
-        <tag>CMD</tag>
-         
-        <tag>RequireJS</tag>
          
          
            

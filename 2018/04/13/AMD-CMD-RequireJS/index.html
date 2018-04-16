@@ -151,7 +151,7 @@
 <meta property="og:site_name" content="cin">
 <meta property="og:description" content="题目1： 为什么要使用模块化？ 最主要的目的：解决命名冲突依赖管理  其他价值：提高代码可读性代码解耦，提高复用性   题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用 CMD 即Common Module Definition通用模块定义，CMD规范是国内发展出来的，就像AMD有个requireJS，CMD有个浏览器的实现SeaJS，SeaJS要解决的问题和requireJ">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-13T04:48:10.956Z">
+<meta property="og:updated_time" content="2018-04-16T13:43:51.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AMD_CMD_RequireJS">
 <meta name="twitter:description" content="题目1： 为什么要使用模块化？ 最主要的目的：解决命名冲突依赖管理  其他价值：提高代码可读性代码解耦，提高复用性   题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用 CMD 即Common Module Definition通用模块定义，CMD规范是国内发展出来的，就像AMD有个requireJS，CMD有个浏览器的实现SeaJS，SeaJS要解决的问题和requireJ">
@@ -272,7 +272,7 @@
   
   <li class="menu-item menu-item-archives">
     <a href="/cin.github.io/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />归档<span class="badge">41</span>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />归档<span class="badge">42</span>
       </a>
 </li>
 
@@ -283,7 +283,7 @@
   
   <li class="menu-item menu-item-categories">
     <a href="/cin.github.io/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">18</span>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">19</span>
       </a>
 </li>
 
@@ -294,7 +294,7 @@
   
   <li class="menu-item menu-item-tags">
     <a href="/cin.github.io/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">62</span>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">63</span>
       </a>
 </li>
 
@@ -482,7 +482,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">2.3k</span>
+                <span title="字数统计">2.1k</span>
               
 
               
@@ -534,20 +534,22 @@
 <li>多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器。</li>
 <li><p>js加载的时候浏览器会停止页面渲染，加载文件越多，页面失去响应时间越长。<br>一个使用requireJS的例子</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;// 定义模块 myModule.js</span><br><span class="line">&gt;define([&apos;dependency&apos;], function()&#123;</span><br><span class="line">&gt;    var name = &apos;Byron&apos;;</span><br><span class="line">&gt;    function printName()&#123;</span><br><span class="line">&gt;        console.log(name);</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt;    return &#123;</span><br><span class="line">&gt;        printName: printName</span><br><span class="line">&gt;    &#125;;</span><br><span class="line">&gt;&#125;);</span><br><span class="line">&gt;// 加载模块</span><br><span class="line">&gt;require([&apos;myModule&apos;], function (my)&#123;</span><br><span class="line">&gt;　 my.printName(); &#125;);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;// 定义模块 myModule.js</span><br><span class="line">define([&apos;dependency&apos;], function()&#123;</span><br><span class="line">    var name = &apos;Byron&apos;;</span><br><span class="line">    function printName()&#123;</span><br><span class="line">        console.log(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">        printName: printName</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br><span class="line">// 加载模块</span><br><span class="line">require([&apos;myModule&apos;], function (my)&#123;</span><br><span class="line">　 my.printName(); &#125;);</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>语法(requireJS定义了一个函数 define，它是全局变量，用来定义模块)：<br><code>define(id?, dependencies?, factory);</code><br><code>id</code>：可选参数，用来定义模块的标识，如果没有提供该参数，脚本文件名（去掉拓展名）。<br><code>dependencies</code>：是一个当前模块依赖的模块名称数组。<br><code>factory</code>：工厂方法，模块初始化要执行的函数或对象。如果为函数，它应该只被执行一次。如果是对象，此对象应该为模块的输出值在页面上使用require函数加载模块。</p>
 <p><code>require([dependencies], function(){});</code><br><code>require()</code>函数接受两个参数。</p>
 <p>第一个参数是一个数组，表示所依赖的模块。<br>第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块。<br>require()函数在加载依赖的函数的时候是异步加载的，这样浏览器不会失去响应，它指定的回调函数，只有前面的模块都加载成功后，才会运行，解决了依赖性的问题。</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;    // 定义模块  myModule.js</span><br><span class="line">&gt;    define(function(require, exports, module) &#123;</span><br><span class="line">&gt;      var $ = require(&apos;jquery.js&apos;)</span><br><span class="line">&gt;      $(&apos;div&apos;).addClass(&apos;active&apos;);</span><br><span class="line">&gt;    &#125;);</span><br><span class="line">&gt;</span><br><span class="line">&gt;    // 加载模块</span><br><span class="line">&gt;    seajs.use([&apos;myModule.js&apos;], function(my)&#123;</span><br><span class="line">&gt;    </span><br><span class="line">&gt;    &#125;);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 定义模块  myModule.js</span><br><span class="line">define(function(require, exports, module) &#123;</span><br><span class="line">  var $ = require(&apos;jquery.js&apos;)</span><br><span class="line">  $(&apos;div&apos;).addClass(&apos;active&apos;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 加载模块</span><br><span class="line">seajs.use([&apos;myModule.js&apos;], function(my)&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
 </li>
 <li><p>CommonJS：<br>用于服务器端模块化，有一个全局性方法require()，用于加载模块。</p>
 <p>语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(dependences) // 加载依赖模块</span><br><span class="line">exports.factory = function()&#123; // ...&#125;;  // 使用”exports”对象来做为输出的唯一表示。</span><br></pre></td></tr></table></figure>
+<blockquote>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(dependences) // 加载依赖模块</span><br><span class="line">exports.factory = function()&#123; // ...&#125;;  // 使用”exports”对象来做为输出的唯一表示。</span><br></pre></td></tr></table></figure>
+</blockquote>
 </li>
 </ul>
 <h5 id="题目3：-使用-requirejs-完善入门任务15，包括如下功能："><a href="#题目3：-使用-requirejs-完善入门任务15，包括如下功能：" class="headerlink" title="题目3： 使用 requirejs 完善入门任务15，包括如下功能："></a>题目3： 使用 requirejs 完善入门任务15，包括如下功能：</h5><p><a href="https://github.com/wangjit/jirengu/tree/master/%E9%AB%98%E7%BA%A74" target="_blank" rel="noopener">代码</a></p>
@@ -578,7 +580,7 @@
   <p><span>本文标题:</span><a href="/cin.github.io/2018/04/13/AMD-CMD-RequireJS/">AMD_CMD_RequireJS</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 cin 的个人博客">cin</a></p>
   <p><span>发布时间:</span>2018年04月13日 - 12:04</p>
-  <p><span>最后更新:</span>2018年04月13日 - 12:04</p>
+  <p><span>最后更新:</span>2018年04月16日 - 21:04</p>
   <p><span>原始链接:</span><a href="/cin.github.io/2018/04/13/AMD-CMD-RequireJS/" title="AMD_CMD_RequireJS">https://wangjit.github.io/cin.github.io/2018/04/13/AMD-CMD-RequireJS/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://wangjit.github.io/cin.github.io/2018/04/13/AMD-CMD-RequireJS/"  aria-label="复制成功！"></i></span>
   </p>
@@ -732,7 +734,7 @@
                 
                   <a href="/cin.github.io/archives/">
                 
-                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -781,7 +783,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -918,7 +922,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">62</span>
+                      
+                    
+                    <span class="site-state-item-count">63</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -998,7 +1004,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共39.5k字</span>
+  <span class="post-count">博客全站共39.7k字</span>
 </div>
 <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
