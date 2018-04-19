@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/AMD-CMD-RequireJS/</loc>
-    <lastmod>2018-04-16T13:43:51.235Z</lastmod>
+    <lastmod>2018-04-19T03:57:53.247Z</lastmod>
     <data>
         <display>
         <title>AMD_CMD_RequireJS</title>
@@ -26,6 +26,461 @@
           
              
               <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%AE%9E%E6%88%98/</loc>
+    <lastmod>2018-04-19T03:55:47.623Z</lastmod>
+    <data>
+        <display>
+        <title>面向对象实战</title>
+        <pubTime>2018-04-13T04:37:57.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>实战</tag>
+         
+        <tag>面向对象</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="页面制作" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/%E9%A1%B5%E9%9D%A2%E5%88%B6%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E5%AF%B9%E8%B1%A1-%E5%8E%9F%E5%9E%8B/</loc>
+    <lastmod>2018-04-19T03:52:23.126Z</lastmod>
+    <data>
+        <display>
+        <title>对象_原型</title>
+        <pubTime>2018-04-13T04:35:05.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>JS</tag>
+         
+        <tag>对象</tag>
+         
+        <tag>原型</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/css3%E7%BB%BC%E5%90%88/</loc>
+    <lastmod>2018-04-19T03:50:56.125Z</lastmod>
+    <data>
+        <display>
+        <title>css3综合</title>
+        <pubTime>2018-04-13T04:07:10.000Z</pubTime>
+        
+        <tag>css3</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="css" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80/</loc>
+    <lastmod>2018-04-19T03:50:47.975Z</lastmod>
+    <data>
+        <display>
+        <title>瀑布流布局</title>
+        <pubTime>2018-04-13T04:34:34.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>JS</tag>
+         
+        <tag>瀑布流布局</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E8%BD%AE%E6%92%AD/</loc>
+    <lastmod>2018-04-19T03:50:05.752Z</lastmod>
+    <data>
+        <display>
+        <title>轮播</title>
+        <pubTime>2018-04-13T04:33:29.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>JS</tag>
+         
+        <tag>轮播</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E6%87%92%E5%8A%A0%E8%BD%BD/</loc>
+    <lastmod>2018-04-19T03:48:41.413Z</lastmod>
+    <data>
+        <display>
+        <title>懒加载</title>
+        <pubTime>2018-04-13T04:32:23.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>JS</tag>
+         
+        <tag>懒加载</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/jQuery%E5%8A%A8%E7%94%BB%E4%B8%8Eajax/</loc>
+    <lastmod>2018-04-19T03:46:33.739Z</lastmod>
+    <data>
+        <display>
+        <title>jQuery动画与ajax</title>
+        <pubTime>2018-04-13T04:31:10.000Z</pubTime>
+        
+        <tag>ajax</tag>
+         
+        <tag>jQuery动画</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
+          
+             
+              <breadCrumb title="jQuery" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/jQuery/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/jQuery%E9%80%89%E6%8B%A9%E5%99%A8-Dom%E6%93%8D%E4%BD%9C-%E6%A0%B7%E5%BC%8F-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86-%E5%8A%A8%E7%94%BB/</loc>
+    <lastmod>2018-04-19T03:44:05.581Z</lastmod>
+    <data>
+        <display>
+        <title>jQuery选择器_Dom操作_样式_事件处理_动画</title>
+        <pubTime>2018-04-13T04:29:08.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>JS</tag>
+         
+        <tag>jQuery</tag>
+         
+        <tag>DOM操作</tag>
+         
+        <tag>事件处理</tag>
+         
+        <tag>动画</tag>
+         
+        <tag>样式</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/JSONP-%E8%B7%A8%E5%9F%9F/</loc>
+    <lastmod>2018-04-19T03:39:58.871Z</lastmod>
+    <data>
+        <display>
+        <title>JSONP_跨域</title>
+        <pubTime>2018-04-13T04:28:08.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>JSONP</tag>
+         
+        <tag>跨域</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
+          
+             
+              <breadCrumb title="JSONP" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/JSONP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/ajax%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2018-04-19T03:37:06.793Z</lastmod>
+    <data>
+        <display>
+        <title>ajax实践</title>
+        <pubTime>2018-04-13T04:26:31.000Z</pubTime>
+        
+        <tag>ajax</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
+          
+             
+              <breadCrumb title="ajax" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/ajax/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E4%BC%81%E4%B8%9A%E7%AB%99%E5%AE%9E%E6%88%98/</loc>
+    <lastmod>2018-04-19T03:11:54.570Z</lastmod>
+    <data>
+        <display>
+        <title>企业站实战</title>
+        <pubTime>2018-04-13T04:10:39.000Z</pubTime>
+        
+        <tag>实战</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="页面制作" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/%E9%A1%B5%E9%9D%A2%E5%88%B6%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86%E4%B8%8E%E4%BD%9C%E5%93%81%E5%AE%9E%E6%88%98/</loc>
+    <lastmod>2018-04-19T03:11:21.561Z</lastmod>
+    <data>
+        <display>
+        <title>个人简历与作品实战</title>
+        <pubTime>2018-04-13T04:09:38.000Z</pubTime>
+        
+        <tag>个人简历页面</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="页面制作" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/%E9%A1%B5%E9%9D%A2%E5%88%B6%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/css%E5%B8%83%E5%B1%80/</loc>
+    <lastmod>2018-04-19T03:04:53.840Z</lastmod>
+    <data>
+        <display>
+        <title>css布局</title>
+        <pubTime>2018-04-13T03:59:47.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="css" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E6%B5%AE%E5%8A%A8%E5%AE%9A%E4%BD%8DBFC%E8%BE%B9%E8%B7%9D%E5%90%88%E5%B9%B6/</loc>
+    <lastmod>2018-04-19T03:01:19.992Z</lastmod>
+    <data>
+        <display>
+        <title>浮动定位BFC边距合并</title>
+        <pubTime>2018-04-13T03:55:12.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>BFC</tag>
+         
+        <tag>浮动</tag>
+         
+        <tag>定位</tag>
+         
+        <tag>边距</tag>
+         
+        <tag>合并</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="css" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/css%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F2/</loc>
+    <lastmod>2018-04-19T02:58:47.655Z</lastmod>
+    <data>
+        <display>
+        <title>css常见样式2</title>
+        <pubTime>2018-04-13T03:54:10.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="css" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/css%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/</loc>
+    <lastmod>2018-04-19T02:51:01.372Z</lastmod>
+    <data>
+        <display>
+        <title>css常见样式</title>
+        <pubTime>2018-04-12T17:25:09.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>css样式</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="css" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/"/>
+          
+             
+              <breadCrumb title="样式" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/%E6%A0%B7%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/Form%E8%A1%A8%E5%8D%95/</loc>
+    <lastmod>2018-04-19T02:45:14.835Z</lastmod>
+    <data>
+        <display>
+        <title>Form表单</title>
+        <pubTime>2018-04-13T03:45:11.000Z</pubTime>
+        
+        <tag>form表单</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="HTML" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/HTML/"/>
           
         </display>
     </data>
@@ -309,181 +764,6 @@
 
     
   <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/ajax%E5%AE%9E%E8%B7%B5/</loc>
-    <lastmod>2018-04-13T04:59:59.436Z</lastmod>
-    <data>
-        <display>
-        <title>ajax实践</title>
-        <pubTime>2018-04-13T04:26:31.000Z</pubTime>
-        
-        <tag>ajax</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
-          
-             
-              <breadCrumb title="ajax" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/ajax/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/JSONP-%E8%B7%A8%E5%9F%9F/</loc>
-    <lastmod>2018-04-13T04:59:17.727Z</lastmod>
-    <data>
-        <display>
-        <title>JSONP_跨域</title>
-        <pubTime>2018-04-13T04:28:08.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>JSONP</tag>
-         
-        <tag>跨域</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
-          
-             
-              <breadCrumb title="JSONP" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/JSONP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/jQuery%E9%80%89%E6%8B%A9%E5%99%A8-Dom%E6%93%8D%E4%BD%9C-%E6%A0%B7%E5%BC%8F-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86-%E5%8A%A8%E7%94%BB/</loc>
-    <lastmod>2018-04-13T04:58:40.598Z</lastmod>
-    <data>
-        <display>
-        <title>jQuery选择器_Dom操作_样式_事件处理_动画</title>
-        <pubTime>2018-04-13T04:29:08.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>JS</tag>
-         
-        <tag>jQuery</tag>
-         
-        <tag>DOM操作</tag>
-         
-        <tag>事件处理</tag>
-         
-        <tag>动画</tag>
-         
-        <tag>样式</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/jQuery%E5%8A%A8%E7%94%BB%E4%B8%8Eajax/</loc>
-    <lastmod>2018-04-13T04:57:08.401Z</lastmod>
-    <data>
-        <display>
-        <title>jQuery动画与ajax</title>
-        <pubTime>2018-04-13T04:31:10.000Z</pubTime>
-        
-        <tag>ajax</tag>
-         
-        <tag>jQuery动画</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
-          
-             
-              <breadCrumb title="jQuery" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/jQuery/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E8%BD%AE%E6%92%AD/</loc>
-    <lastmod>2018-04-13T04:56:06.251Z</lastmod>
-    <data>
-        <display>
-        <title>轮播</title>
-        <pubTime>2018-04-13T04:33:29.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>JS</tag>
-         
-        <tag>轮播</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E5%AF%B9%E8%B1%A1-%E5%8E%9F%E5%9E%8B/</loc>
-    <lastmod>2018-04-13T04:55:06.720Z</lastmod>
-    <data>
-        <display>
-        <title>对象_原型</title>
-        <pubTime>2018-04-13T04:35:05.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>JS</tag>
-         
-        <tag>对象</tag>
-         
-        <tag>原型</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/this-%E5%8E%9F%E5%9E%8B%E9%93%BE-%E7%BB%A7%E6%89%BF/</loc>
     <lastmod>2018-04-13T04:52:57.000Z</lastmod>
     <data>
@@ -539,87 +819,6 @@
           
              
               <breadCrumb title="coding tool" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/coding-tool/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2018-04-13T04:38:36.656Z</lastmod>
-    <data>
-        <display>
-        <title>面向对象实战</title>
-        <pubTime>2018-04-13T04:37:57.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>实战</tag>
-         
-        <tag>面向对象</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="页面制作" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/%E9%A1%B5%E9%9D%A2%E5%88%B6%E4%BD%9C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80/</loc>
-    <lastmod>2018-04-13T04:34:57.893Z</lastmod>
-    <data>
-        <display>
-        <title>瀑布流布局</title>
-        <pubTime>2018-04-13T04:34:34.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>JS</tag>
-         
-        <tag>瀑布流布局</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E6%87%92%E5%8A%A0%E8%BD%BD/</loc>
-    <lastmod>2018-04-13T04:33:20.428Z</lastmod>
-    <data>
-        <display>
-        <title>懒加载</title>
-        <pubTime>2018-04-13T04:32:23.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>JS</tag>
-         
-        <tag>懒加载</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="JS" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/JS/"/>
           
         </display>
     </data>
@@ -707,52 +906,6 @@
 
     
   <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E4%BC%81%E4%B8%9A%E7%AB%99%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2018-04-13T04:11:04.664Z</lastmod>
-    <data>
-        <display>
-        <title>企业站实战</title>
-        <pubTime>2018-04-13T04:10:39.000Z</pubTime>
-        
-        <tag>实战</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="页面制作" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/%E9%A1%B5%E9%9D%A2%E5%88%B6%E4%BD%9C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86%E4%B8%8E%E4%BD%9C%E5%93%81%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2018-04-13T04:10:20.402Z</lastmod>
-    <data>
-        <display>
-        <title>个人简历与作品实战</title>
-        <pubTime>2018-04-13T04:09:38.000Z</pubTime>
-        
-        <tag>个人简历页面</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="页面制作" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/%E9%A1%B5%E9%9D%A2%E5%88%B6%E4%BD%9C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E4%BC%AA%E7%B1%BB%E5%85%83%E7%B4%A0%E8%87%AA%E5%AE%9A%E4%B9%89checkbox/</loc>
     <lastmod>2018-04-13T04:09:24.297Z</lastmod>
     <data>
@@ -774,108 +927,6 @@
           
              
               <breadCrumb title="伪元素" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/%E4%BC%AA%E5%85%83%E7%B4%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/css3%E7%BB%BC%E5%90%88/</loc>
-    <lastmod>2018-04-13T04:07:46.394Z</lastmod>
-    <data>
-        <display>
-        <title>css3综合</title>
-        <pubTime>2018-04-13T04:07:10.000Z</pubTime>
-        
-        <tag>css3</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="css" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/css%E5%B8%83%E5%B1%80/</loc>
-    <lastmod>2018-04-13T04:05:07.849Z</lastmod>
-    <data>
-        <display>
-        <title>css布局</title>
-        <pubTime>2018-04-13T03:59:47.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="css" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/%E6%B5%AE%E5%8A%A8%E5%AE%9A%E4%BD%8DBFC%E8%BE%B9%E8%B7%9D%E5%90%88%E5%B9%B6/</loc>
-    <lastmod>2018-04-13T03:56:31.314Z</lastmod>
-    <data>
-        <display>
-        <title>浮动定位BFC边距合并</title>
-        <pubTime>2018-04-13T03:55:12.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-        <tag>BFC</tag>
-         
-        <tag>浮动</tag>
-         
-        <tag>定位</tag>
-         
-        <tag>边距</tag>
-         
-        <tag>合并</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="css" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/css%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F2/</loc>
-    <lastmod>2018-04-13T03:54:56.432Z</lastmod>
-    <data>
-        <display>
-        <title>css常见样式2</title>
-        <pubTime>2018-04-13T03:54:10.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="css" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/"/>
           
         </display>
     </data>
@@ -934,29 +985,6 @@
         <pubTime>2018-04-13T03:48:49.000Z</pubTime>
         
         <tag>HTML</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="HTML" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/HTML/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/Form%E8%A1%A8%E5%8D%95/</loc>
-    <lastmod>2018-04-13T03:47:54.745Z</lastmod>
-    <data>
-        <display>
-        <title>Form表单</title>
-        <pubTime>2018-04-13T03:45:11.000Z</pubTime>
-        
-        <tag>form表单</tag>
          
          
            
@@ -1038,34 +1066,6 @@
           
              
               <breadCrumb title="css" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangjit.github.io/cin.github.io/cin.github.io/2018/04/13/css%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/</loc>
-    <lastmod>2018-04-13T03:11:27.094Z</lastmod>
-    <data>
-        <display>
-        <title>css常见样式</title>
-        <pubTime>2018-04-12T17:25:09.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-        <tag>css样式</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="css" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/"/>
-          
-             
-              <breadCrumb title="样式" url="https://wangjit.github.io/cin.github.io/cin.github.io/categories/%E5%89%8D%E7%AB%AF/css/%E6%A0%B7%E5%BC%8F/"/>
           
         </display>
     </data>

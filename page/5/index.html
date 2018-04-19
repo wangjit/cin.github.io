@@ -563,10 +563,9 @@
 <h3 id="解释下面代码的作用-为什么要加引号-字体里-5b8b-4f53代表什么"><a href="#解释下面代码的作用-为什么要加引号-字体里-5b8b-4f53代表什么" class="headerlink" title="解释下面代码的作用?为什么要加引号? 字体里\5b8b\4f53代表什么?"></a>解释下面代码的作用?为什么要加引号? 字体里\5b8b\4f53代表什么?</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">  font: 12px/1.5 tahoma,arial,&apos;Hiragino Sans GB&apos;,&apos;\5b8b\4f53&apos;,sans-serif;</span><br><span class="line">&#125;/*body内的字体大小是12像素，字体是1.5倍高度，字体的类型</span><br><span class="line">优先权由tahoma开始从左至右一直到sans-serif逐次降低*/</span><br></pre></td></tr></table></figure>
 <ul>
 <li>有些字体类型的名称是由两个单词组成的，用引号引起来表示是一个字体，不加引号浏览器解析时会误认为是两种字体类型</li>
-<li><p>在css中设置字体时，直接写字体中文或英文名称浏览器都能识别，直接写中文的情况下编码（GB2312、utf-8等）不匹配时会产生乱码，保险的方式是将字体名称用Unicode来表示。所以字体里<code>\5b8b\4f53</code>这种写法是font-family的写法，它代表的是中文字体“黑体”的Unicode码</p>
-<p><a href="https://wangjit.github.io/jirengu/1.html">代码1</a><br><a href="https://wangjit.github.io/jirengu/2.html">代码2</a><br><a href="https://wangjit.github.io/jirengu/3.html">代码3</a><br><a href="https://wangjit.github.io/jirengu/4.html">代码4</a><br><a href="https://wangjit.github.io/jirengu/5.html">代码5</a></p>
-</li>
+<li>在css中设置字体时，直接写字体中文或英文名称浏览器都能识别，直接写中文的情况下编码（GB2312、utf-8等）不匹配时会产生乱码，保险的方式是将字体名称用Unicode来表示。所以字体里<code>\5b8b\4f53</code>这种写法是font-family的写法，它代表的是中文字体“黑体”的Unicode码</li>
 </ul>
+<p><a href="https://wangjit.github.io/demos/primary8/1.html">代码1</a><br><a href="https://wangjit.github.io/demos/primary8/2.html">代码2</a><br><a href="https://wangjit.github.io/demos/primary8/3.html">代码3</a><br><a href="https://wangjit.github.io/demos/primary8/4.html">代码4</a><br><a href="https://wangjit.github.io/demos/primary8/5.html">代码5</a></p>
 
           
         
